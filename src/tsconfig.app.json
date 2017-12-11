@@ -1,12 +1,17 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "allowJs": true,
+    //"noEmit": true,
+    //"outFile": "../out-tsc/app",
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
     "module": "es2015",
     "types": []
   },
   "exclude": [
+    "node_modules",
+    "public",
     "test.ts",
     "**/*.spec.ts"
   ]
