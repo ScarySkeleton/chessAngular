@@ -1,1 +1,6 @@
-@import '../../../shared/styles/reset.scss';
+@import '../shared/styles/variables.scss';
+
+.body-content {
+    padding: $paddingMedium;
+    padding-left: $paddingLeftWithMenu;
+}

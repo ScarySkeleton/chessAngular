@@ -1,9 +1,25 @@
-$marginLeft: 15px;
-$marginTop: 15px;
-$marginRight: 15px;
-$paddingLeft: 15px;
-$paddingTop: 15px;
-$paddingRight: 15px;
+/*
+    Size
+*/
+$bigSize: 2rem;
+$mediumSize: 1.5rem;
+$standartSize: 1rem;
+$smallSize: 0.5rem;
+
+/*
+    Indents
+*/
+$marginLeftMedium: $mediumSize;
+$marginTopMedium: $mediumSize;
+$marginBottomMedium: $mediumSize;
+$marginRightMedium: $mediumSize;
+$marginMedium: $marginLeftMedium $marginTopMedium $marginBottomMedium $marginRightMedium;
+
+$paddingLeft: $mediumSize;
+$paddingTop: $mediumSize;
+$paddingBottom: $mediumSize;
+$paddingRight: $mediumSize;
+$paddingMedium:  $paddingLeft $paddingTop $paddingBottom $paddingRight;
 
 $commonMargin: 5px;
 $commonPadding: 5px;
@@ -25,10 +41,3 @@ $paddingLeftWithMenu: calc(#{$paddingLeft} + #{$menuWidth});
 $vLightBlue: #fbfbfb;
 $vLightBlack: #e5e5e5;
 
-/*
-    Size
-*/
-$bigSize: 2rem;
-$mediumSize: 1.5rem;
-$standartSize: 1rem;
-$smallSize: 0.5rem;
