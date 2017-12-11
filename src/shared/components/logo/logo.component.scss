@@ -1,0 +1,9 @@
+@import '../../styles/variables';
+
+.logo {
+    text-align: right;
+    background: $vLightBlue;
+    border-bottom: 1px solid $vLightBlack;
+    padding: $commonPadding;
+    padding-left: $paddingLeftWithMenu;
+}

@@ -1,0 +1,7 @@
+<nav class="nav">
+    <ul class="nav__list" *ngFor='let link of links'>
+        <li class="nav__element">
+            <chess-tab [tab]='link' className='nav__text'></chess-tab>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,34 @@
+$marginLeft: 15px;
+$marginTop: 15px;
+$marginRight: 15px;
+$paddingLeft: 15px;
+$paddingTop: 15px;
+$paddingRight: 15px;
+
+$commonMargin: 5px;
+$commonPadding: 5px;
+
+$borderRadiusSmall: 2px;
+$borderRadiusMedium: 5px;
+
+/*
+    Menu
+*/
+$menuWidth: 60px;
+$navExpanded: 175px;
+$paddingLeftWithMenu: calc(#{$paddingLeft} + #{$menuWidth});
+
+
+/*
+    Color
+*/
+$vLightBlue: #fbfbfb;
+$vLightBlack: #e5e5e5;
+
+/*
+    Size
+*/
+$bigSize: 2rem;
+$mediumSize: 1.5rem;
+$standartSize: 1rem;
+$smallSize: 0.5rem;
