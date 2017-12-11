@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowJs": true,
+    //"outFile": "./dist/out-tsc",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -11,6 +13,9 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    // "exclude": [
+    //   "node_modules"
+    // ],
     "lib": [
       "es2017",
       "dom"
