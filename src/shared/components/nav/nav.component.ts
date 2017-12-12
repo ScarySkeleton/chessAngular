@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 import ILink from '../../../assets/pages/ILink';
-import links from '../../../assets/pages/links.js';
+import { links } from '../../../assets/pages/links';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
