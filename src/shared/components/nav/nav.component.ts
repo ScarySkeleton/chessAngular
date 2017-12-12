@@ -10,6 +10,6 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
     styleUrls: ['./nav.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export default class NavComponent {
+export class NavComponent {
     links: Array<ILink> = links
 }
