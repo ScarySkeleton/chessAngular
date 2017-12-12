@@ -1,32 +1,32 @@
 const links = [
     {
         caption: "Главная",
-        link: "Home",
+        link: "home",
         i: "fa fa-home fa-2x",
     },
     {
         caption: "Играть",
-        link: "Game", 
+        link: "game", 
         i: "fa fa-gamepad"
     },
     {
         caption: "Уроки",
-        link: "Lessons",
+        link: "lessons",
         i: "fa fa-list fa-2x",
     },
     {
         caption: "История",
-        link: "History",
+        link: "history",
         i: "fa fa-bar-chart-o fa-2x",
     }, 
     {
         caption: "Локация",
-        link: "Map",
+        link: "map",
         i: "fa fa-map-marker fa-2x",
     }, 
     {
-        caption: "Хелп",
-        link: "Documentation",
+        caption: "Мы",
+        link: "about",
         i: "fa fa-info fa-2x",
     }
 ]

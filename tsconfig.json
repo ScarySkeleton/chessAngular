@@ -3,7 +3,7 @@
   "compilerOptions": {
     "allowJs": true,
     //"outFile": "./dist/out-tsc",
-    "outDir": "./distDir",
+    "outDir": "./out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
