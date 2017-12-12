@@ -48,9 +48,10 @@ display:block;
 width: $navExpanded;
 }
 
-.nav li>a {
+.nav li a {
 position:relative;
 display:table;
+
 border-collapse:collapse;
 border-spacing:0;
 color:#999;
