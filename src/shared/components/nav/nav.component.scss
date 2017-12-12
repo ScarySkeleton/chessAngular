@@ -114,11 +114,26 @@ outline:0;
 margin:0;
 padding:0;
 }
-.nav li:hover a,nav.nav li.active a,.dropdown-menu li a:hover,.dropdown-menu li a:focus,.dropdown-menu .active a,.dropdown-menu .active a:hover,.dropdown-menu .active a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
-color:#fff;
-background-color:#5fa2db;
-border-radius: 0 $borderRadiusMedium $borderRadiusMedium 0;
+.nav li:hover a,
+  nav.nav li.active a,
+  .dropdown-menu li a:hover,
+  .dropdown-menu li a:focus,
+  .dropdown-menu .active a,
+  .dropdown-menu .active a:hover,
+  .dropdown-menu .active a:focus,
+  .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+  .dashboard-page nav.dashboard-menu ul li.active a,
+  .tab-active
+ {
+  color: $vWhite;
+  background-color:#5fa2db;
+  border-radius: 0 $borderRadiusMedium $borderRadiusMedium 0;
 }
+
+  .active.tab-active {
+    color: $vWhite;
+  }
+
 @font-face {
   font-family: 'Titillium Web';
   font-style: normal;
