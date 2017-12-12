@@ -3,11 +3,14 @@
   "compilerOptions": {
     //"noEmit": true,
     //"outFile": "../out-tsc/app",
-    "outDir": "../out-tsc/app",
+    "outDir": "../distDir/app",
     "baseUrl": "./",
     "module": "es2015",
     "types": []
   },
+  // "include": [
+  //   "**/*.js"
+  // ],
   "exclude": [
     "public",
     "test.ts",
