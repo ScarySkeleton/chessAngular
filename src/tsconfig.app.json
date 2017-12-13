@@ -10,7 +10,9 @@
         "app/*"
       ],
       "assets/*": ["assets/*"],
-      "shared/*": ["shared/*"]
+      "shared/*": ["shared/*"],
+      "components/*": ["app/components/*"],
+      "services/*": ["app/services/*"]
     },
     "module": "es2015",
     "types": []
