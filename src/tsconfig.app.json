@@ -6,17 +6,17 @@
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
     "paths": {
-      "app/*": ["app/*"],
+      "app/*": [
+        "app/*"
+      ],
       "assets/*": ["assets/*"],
       "shared/*": ["shared/*"]
     },
     "module": "es2015",
     "types": []
   },
-  // "include": [
-  //   "**/*.js"
-  // ],
   "exclude": [
+    "../node_modules/**",
     "public",
     "test.ts",
     "**/*.spec.ts"

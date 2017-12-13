@@ -1,7 +1,9 @@
 <nav class="nav">
-    <ul class="nav__list" *ngFor='let link of links'>
-        <li class="nav__element">
+    <ul class="nav__list">
+        <li class="nav__element"  *ngFor='let link of links'>
             <chess-tab [tab]='link' className='nav__text'></chess-tab>
         </li>
     </ul>
+
+    <chess-auth></chess-auth>
 </nav>

@@ -1,35 +1,51 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
 import appRoute from './app-route.component';
-// Components
+// Common
 import { AppComponent } from './app.component';
+// Components
 import { LogoComponent } from 'shared/components/logo/logo.component';
 import { NavComponent } from 'shared/components/nav/nav.component';
 import { TabComponent } from 'shared/components/tab/tab.component';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
-import { DefaultComponent } from './default/default.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthComponent } from 'shared/components/auth/auth.component';
+// Auth
+import { LogoutNavComponent } from 'shared/components/auth/logout-nav/logout-nav.component';
+import { LogoutComponent } from 'app/auth/logout/logout.component';
+import { LoginNavComponent } from 'shared/components/auth/login-nav/login-nav.component';
+import { LoginComponent } from 'app/auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+// Containers
+import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
+import { DefaultComponent } from './components/default/default.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
 
 @NgModule({
   declarations: [
+    // Common
     AppComponent,
+    // Components
     LogoComponent,
     NavComponent,
     TabComponent,
+    AuthComponent,
+    // Auth 
+    LogoutNavComponent,
+    LogoutComponent,
+    LoginNavComponent, 
+    LoginComponent,
+    RegisterComponent,
+    // Containers
     AboutComponent,
     HomeComponent,
     DefaultComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent,    
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoute,
-      { enableTracing: true } // only for debugg
-    )
+    appRoute
   ],
   providers: [],
   bootstrap: [AppComponent]

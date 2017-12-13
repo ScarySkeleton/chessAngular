@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+// @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
 
 
 .fa-2x {
@@ -82,10 +82,17 @@ width: calc(#{$navExpanded} - 80px);
   font-family: 'Titillium Web', sans-serif;
 }
 
-.nav>ul.nav__list-logout {
+.nav ul.nav__list-logout,
+.nav ul.nav__list-login {
 position:absolute;
 left:0;
 bottom:0;
+}
+
+// TODO:
+// While auth will be done - need to remove
+.nav ul.nav__list-login {
+  bottom: 36px;
 }
 
 .no-touch .scrollable.hover {

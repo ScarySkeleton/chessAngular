@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "traceResolution": true,
     "target": "es5",
     "baseUrl": "./",
     // "paths": {
