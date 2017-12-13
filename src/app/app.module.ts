@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import appRoute from './app-route.component';
 // Common
@@ -20,6 +21,8 @@ import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { DefaultComponent } from './components/default/default.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+// Services
+import { RegisterService } from 'services/auth/register.service';
 
 
 @NgModule({
@@ -45,9 +48,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     appRoute
   ],
-  providers: [],
+  providers: [
+    RegisterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
