@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as Rx from 'RxJS';
 
+import { IRegister } from 'interfaces/IRegister';
+import * as actions from './register.action';
+import { AppState } from './register.reducer';
 import { RegisterService } from 'services/auth/register.service';
 import { IErrorMessage } from 'shared/interfaces/IErrorMessage';
 
@@ -9,6 +14,8 @@ import { IErrorMessage } from 'shared/interfaces/IErrorMessage';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  private register: Rx.Observable<IRegister>;
 
   private login: string;
   private password: string; 
@@ -21,7 +28,13 @@ export class RegisterComponent implements OnInit {
 
   public errorMessage: any = {};
 
-  constructor(private _registerSerivce: RegisterService) { }
+  constructor(private _registerSerivce: RegisterService, 
+              private store: Store<AppState>) {
+                this.register = store.select(state => {
+                  console.log(state);
+                  return state.register;
+                })
+               }
 
   ngOnInit() {
   }
@@ -46,7 +59,7 @@ export class RegisterComponent implements OnInit {
   passwordInputCheck({ target: { value: passwordCheck } }) {
     this.passwordCheck = passwordCheck;
 
-    if(this.password !== this.passwordCheck) {
+    if(!this.checkIfPasswordsEqual()) {
       this.errorMessage[this.passwordError] = this.passwordErrorMessage;
       return;
     }
@@ -57,6 +70,10 @@ export class RegisterComponent implements OnInit {
     this.passwordCheck = "";
   }
 
+  checkIfPasswordsEqual() {
+    return this.password === this.passwordCheck;
+  }
+
   /*
     Common 
   */
@@ -64,8 +81,17 @@ export class RegisterComponent implements OnInit {
     this.errorMessage[toReset] = "";
   }
 
-  register() {
-    
+  onRegister() {
+    if(!this.checkIfPasswordsEqual()) {
+      // TODO
+      // Show, that the unnable to register because the error
+      return;
+    }
+
+    this._registerSerivce.setData({
+      logIn: this.login,
+      password: this.password
+    });
   }
 
 }

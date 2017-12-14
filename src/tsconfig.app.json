@@ -11,6 +11,7 @@
       ],
       "assets/*": ["assets/*"],
       "shared/*": ["shared/*"],
+      "interfaces/*": ["shared/interfaces/*"],
       "components/*": ["app/components/*"],
       "services/*": ["app/services/*"]
     },
