@@ -47,5 +47,5 @@ appRoute.push({
 
 export default RouterModule.forRoot(
     appRoute,
-    { enableTracing: true } // only for debugg
+    //{ enableTracing: true } // only for debugg
 );

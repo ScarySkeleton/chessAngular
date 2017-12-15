@@ -10,6 +10,7 @@
       "app/*": ["app/*"],
       "components/*": ["app/components/*"],
       "services/*": ["app/services/*"],
+      "global/*": ["app/global/*"],
       // ASSETS
       "assets/*": ["assets/*"],
       // SHARED

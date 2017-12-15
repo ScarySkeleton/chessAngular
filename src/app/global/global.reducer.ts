@@ -1,15 +1,16 @@
 import {IAction} from 'abstract/Action';
-import * as actions from './globalState.action';
+import * as actions from './global.action';
+import {IGlobal} from 'interfaces/IGlobal'; 
 
-const initState = {
+const initState: IGlobal = {
     isFetching: false
 }
 
 export interface IGlobalState {
-    isFetching: boolean;
+    global: IGlobal;
 }
 
-export const globalReducer = (state = initState, action: IAction) => {
+export const globalReducer = (state:IGlobal = initState, action: IAction) => {
     switch(action.type) {
         case actions.IS_FETCHING: 
             return {

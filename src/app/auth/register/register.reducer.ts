@@ -1,14 +1,15 @@
 import {IAction} from 'abstract/Action';
-import { IRegister } from 'interfaces/IRegister';
+import {IRegister} from 'interfaces/IRegister';
 import * as actions from './register.action';
 
-export interface RegisterState {
-    register: IRegister
+const initState: IRegister = {
+    logIn: null,
+    password: null,
+    isRegistered: false,
 }
 
-const initState = {
-    logIn: null,
-    password: null
+export interface IRegisterState {
+    register: IRegister;
 }
 
 export const registerReducer = 
@@ -17,19 +18,22 @@ export const registerReducer =
         case actions.REGISTER_FAILURE: 
             return {
                 ...state,
-                response: action.payload,
+                ...action.payload,
+                isRegistered: false,
             }
         
         case actions.REGISTER_SUCCESS: 
             return {
                 ...state,
-                response: action.payload
+                ...action.payload,
+                isRegistered: true,
             }
         
-        case actions.REGISTER_REQUEST: 
+        case actions.REGISTER_REQUEST:
             return {
                 ...state,
-                request: action.payload
+                ...action.payload,
+                isRegistered: false,
             }
         
         default: 

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
+import * as Rx from 'RxJS';
 
-import {IGlobalState} from 'shared/globalState/globalState.reducer';
+import {GlobalService} from 'global/global.service';
+import {IGlobalState} from 'global/global.reducer';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +11,15 @@ import {IGlobalState} from 'shared/globalState/globalState.reducer';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private store: Store<IGlobalState>) {}
+
+  public globalState: Rx.Subscription = this._globalService
+    .globalState$
+    .subscribe((state: IGlobalState) => this.globalStateChange(state));
+
+  constructor(private store: Store<IGlobalState>,
+    private _globalService: GlobalService) {}
+
+  globalStateChange(glState) {
+    console.log(glState);
+  }
 }

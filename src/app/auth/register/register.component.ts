@@ -1,44 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
 import * as Rx from 'RxJS';
 
-import { IRegister } from 'interfaces/IRegister';
+import {IRegister} from 'interfaces/IRegister';
 import * as actions from './register.action';
-import { RegisterState } from './register.reducer';
-import { RegisterService } from 'services/auth/register.service';
-import { IErrorMessage } from 'shared/interfaces/IErrorMessage';
+import {IRegisterState} from './register.reducer';
+import {RegisterService} from 'services/auth/register.service';
+import {IErrorMessage} from 'shared/interfaces/IErrorMessage';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
-
-  private register: Rx.Observable<IRegister>;
+export class RegisterComponent {
 
   private login: string;
   private password: string; 
   private passwordCheck: string = "";
+  public registerSubscription: Rx.Subscription = this._registerSerivce.register$
+    .subscribe((register: IRegisterState) => console.log(register));  
 
-  public loginError: string = 'loginError';
-  private loginErrorMessage: string = 'Такой логин уже существует';
-  public passwordError: string = 'passwordError';
-  private passwordErrorMessage: string = 'Пароли не совпадают';
+  public readonly loginError: string = 'loginError';
+  private readonly loginErrorMessage: string = 'Такой логин уже существует';
+  public readonly passwordError: string = 'passwordError';
+  private readonly passwordErrorMessage: string = 'Пароли не совпадают';
 
   public errorMessage: any = {};
 
-  constructor(private _registerSerivce: RegisterService, 
-              private store: Store<RegisterState>) {
-                console.log("Here");
-                this.register = store.select(state => {
-                  console.log(state);
-                  return state.register;
-                })
-               }
-
-  ngOnInit() {
-  }
+  constructor(private _registerSerivce: RegisterService) { }
 
   /*
     Login
@@ -89,7 +79,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    this._registerSerivce.setData({
+    this._registerSerivce.register({
       logIn: this.login,
       password: this.password
     });

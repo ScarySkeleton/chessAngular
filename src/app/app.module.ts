@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
-
-// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 import appRoute from './app-route.component';
 // Common
@@ -25,9 +24,10 @@ import { HomeComponent } from './components/home/home.component';
 import { DefaultComponent } from './components/default/default.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 // Services
-import { RegisterService } from 'services/auth/register.service';
+import {GlobalService} from 'global/global.service';
+import {RegisterService} from 'services/auth/register.service';
 // Reducers
-import {globalReducer} from 'shared/globalState/globalState.reducer';
+import {globalReducer} from 'global/global.reducer';
 import  { registerReducer } from 'app/auth/register/register.reducer.ts';
 
 @NgModule({
@@ -54,16 +54,17 @@ import  { registerReducer } from 'app/auth/register/register.reducer.ts';
   imports: [
     BrowserModule,
     FormsModule,
+    appRoute, // Routing
     StoreModule.forRoot({
       global: globalReducer,
       register: registerReducer
     }),
-    appRoute, // Routing
-    // StoreDevtoolsModule.instrument({
-    //   maxAge: 25
-    // }) // Store dev tools 
+    StoreDevtoolsModule.instrument({
+       maxAge: 25
+    }) // Store dev tools 
   ],
   providers: [
+    GlobalService,
     RegisterService
   ],
   bootstrap: [AppComponent]
