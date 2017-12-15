@@ -4,6 +4,7 @@ import * as Rx from 'RxJS';
 
 import {GlobalService} from 'global/global.service';
 import {IGlobalState} from 'global/global.reducer';
+import {IGlobal} from 'interfaces/IGlobal';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ import {IGlobalState} from 'global/global.reducer';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  public isSpinnerActive: boolean = false;
 
   public globalState: Rx.Subscription = this._globalService
     .globalState$
@@ -20,6 +23,14 @@ export class AppComponent {
     private _globalService: GlobalService) {}
 
   globalStateChange(glState) {
-    console.log(glState);
+    if(!glState.global) {
+      return;
+    }
+
+    this.setSpinner(glState.global);
+  }
+
+  setSpinner({isFetching}: IGlobal) {
+    this.isSpinnerActive = isFetching;
   }
 }

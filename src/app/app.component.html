@@ -2,5 +2,8 @@
 <chess-nav></chess-nav>
 
 <div class="body-content">
+  <div class="wrap-spinner" *ngIf="isSpinnerActive">
+    <div class="spinner"></div>
+  </div>
   <router-outlet></router-outlet>
 </div>
