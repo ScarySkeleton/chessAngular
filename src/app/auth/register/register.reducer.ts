@@ -1,9 +1,8 @@
-import { Action } from '@ngrx/store';
-
+import {IAction} from 'abstract/Action';
 import { IRegister } from 'interfaces/IRegister';
 import * as actions from './register.action';
 
-export interface AppState {
+export interface RegisterState {
     register: IRegister
 }
 
@@ -13,9 +12,7 @@ const initState = {
 }
 
 export const registerReducer = 
-    (state:IRegister = initState, action: Action) => {
-
-    console.log("register reducer: state, action", state, action);
+        (state:IRegister = initState, action: IAction) => {
     switch(action.type) {
         case actions.REGISTER_FAILURE: 
             return {

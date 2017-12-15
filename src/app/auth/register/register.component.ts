@@ -4,7 +4,7 @@ import * as Rx from 'RxJS';
 
 import { IRegister } from 'interfaces/IRegister';
 import * as actions from './register.action';
-import { AppState } from './register.reducer';
+import { RegisterState } from './register.reducer';
 import { RegisterService } from 'services/auth/register.service';
 import { IErrorMessage } from 'shared/interfaces/IErrorMessage';
 
@@ -29,7 +29,8 @@ export class RegisterComponent implements OnInit {
   public errorMessage: any = {};
 
   constructor(private _registerSerivce: RegisterService, 
-              private store: Store<AppState>) {
+              private store: Store<RegisterState>) {
+                console.log("Here");
                 this.register = store.select(state => {
                   console.log(state);
                   return state.register;

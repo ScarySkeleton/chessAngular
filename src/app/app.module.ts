@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
+import {StoreModule} from '@ngrx/store';
 
 // import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
@@ -27,6 +27,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 // Services
 import { RegisterService } from 'services/auth/register.service';
 // Reducers
+import {globalReducer} from 'shared/globalState/globalState.reducer';
 import  { registerReducer } from 'app/auth/register/register.reducer.ts';
 
 @NgModule({
@@ -53,7 +54,10 @@ import  { registerReducer } from 'app/auth/register/register.reducer.ts';
   imports: [
     BrowserModule,
     FormsModule,
-    
+    StoreModule.forRoot({
+      global: globalReducer,
+      register: registerReducer
+    }),
     appRoute, // Routing
     // StoreDevtoolsModule.instrument({
     //   maxAge: 25

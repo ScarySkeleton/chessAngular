@@ -6,14 +6,16 @@
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
     "paths": {
-      "app/*": [
-        "app/*"
-      ],
-      "assets/*": ["assets/*"],
-      "shared/*": ["shared/*"],
-      "interfaces/*": ["shared/interfaces/*"],
+      // APP
+      "app/*": ["app/*"],
       "components/*": ["app/components/*"],
-      "services/*": ["app/services/*"]
+      "services/*": ["app/services/*"],
+      // ASSETS
+      "assets/*": ["assets/*"],
+      // SHARED
+      "shared/*": ["shared/*"],
+      "abstract/*": ["shared/abstractClasses/*"],
+      "interfaces/*": ["shared/interfaces/*"]
     },
     "module": "es2015",
     "types": []
