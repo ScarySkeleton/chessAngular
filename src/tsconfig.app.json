@@ -15,7 +15,7 @@
       "assets/*": ["assets/*"],
       // SHARED
       "shared/*": ["shared/*"],
-      "abstract/*": ["shared/abstractClasses/*"],
+      "abstract/*": ["shared/abstract/*"],
       "interfaces/*": ["shared/interfaces/*"]
     },
     "module": "es2015",

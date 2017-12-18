@@ -1,4 +1,4 @@
-import {IAction} from 'abstract/Action';
+import {IAction} from 'interfaces/IAction';
 import * as actions from './global.action';
 import {IGlobal} from 'interfaces/IGlobal'; 
 

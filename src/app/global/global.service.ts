@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 
-import {IAction} from 'abstract/Action';
+import {IAction} from 'interfaces/IAction';
 import {IAppState} from 'interfaces/IAppState'
 import {IGlobalState} from 'global/global.reducer';
 

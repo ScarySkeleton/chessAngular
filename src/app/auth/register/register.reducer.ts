@@ -1,4 +1,4 @@
-import {IAction} from 'abstract/Action';
+import {IAction} from 'interfaces/IAction';
 import {IRegister} from 'interfaces/IRegister';
 import * as actions from './register.action';
 
