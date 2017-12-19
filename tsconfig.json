@@ -2,27 +2,32 @@
   "compileOnSave": false,
   "compilerOptions": {
     "allowJs": true,
-    //"outFile": "./dist/out-tsc",
     "outDir": "./out-tsc",
-    "module": "commonjs",
+
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "declaration": false,
-    //"moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "traceResolution": true,
     "target": "es5",
     "baseUrl": "./src",
-    // "paths": {
-    //   "@app/*": ["src/app/*"]
-    // },
+    "paths": {
+      // APP
+      "app/*": ["./app/*"],
+      "components/*": ["./app/components/*"],
+      "services/*": ["./app/services/*"],
+      "global/*": ["./app/global/*"],
+      // ASSETS
+      "assets/*": ["./assets/*"],
+      // SHARED
+      "shared/*": ["./shared/*"],
+      "abstract/*": ["./shared/abstract/*"],
+      "interfaces/*": ["./shared/interfaces/*"]
+    },
     "typeRoots": [
       "node_modules/@types"
-    ],  
-    // "exclude": [
-    //   "node_modules"
-    // ],
+    ], 
     "lib": [
       "es2017",
       "dom"
