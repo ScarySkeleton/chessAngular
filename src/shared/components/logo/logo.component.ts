@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
     templateUrl: './logo.component.html',
     styleUrls: ['./logo.component.scss']
 })
-export default class LogoComponent {}
+export class LogoComponent {}

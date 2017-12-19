@@ -7,7 +7,7 @@ import ITab from './ITab';
     templateUrl: './tab.component.html',
     styleUrls: ['./tab.component.scss']
 })
-export default class TabComponent {
+export class TabComponent {
     @Input() tab: ITab;
     @Input() className: string;
 }

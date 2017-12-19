@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
-import ILink from '../../../assets/pages/ILink';
-import links from '../../../assets/pages/links';
+import ILink from 'assets/pages/ILink';
+import { links } from 'assets/pages/links';
 
 @Component({
     selector: 'chess-nav',
     templateUrl: './nav.component.html',
-    styleUrls: ['./nav.component.scss']
+    styleUrls: ['./nav.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
-export default class NavComponent {
+export class NavComponent {
     links: Array<ILink> = links
 }

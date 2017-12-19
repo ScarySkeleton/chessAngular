@@ -1,34 +1,42 @@
-const links = [
+import { HomeComponent } from 'app/components/home/home.component';
+import { AboutComponent } from 'app/components/about/about.component';
+import { DefaultComponent } from 'app/components/default/default.component';
+
+export const links = [
     {
         caption: "Главная",
-        link: "Home",
+        link: "home",
+        component: HomeComponent,
         i: "fa fa-home fa-2x",
     },
     {
         caption: "Играть",
-        link: "Game", 
+        link: "game", 
+        component: DefaultComponent,
         i: "fa fa-gamepad"
     },
     {
         caption: "Уроки",
-        link: "Lessons",
+        link: "lessons",
+        component: DefaultComponent,
         i: "fa fa-list fa-2x",
     },
     {
         caption: "История",
-        link: "History",
+        link: "history",
+        component: DefaultComponent,
         i: "fa fa-bar-chart-o fa-2x",
     }, 
     {
         caption: "Локация",
-        link: "Map",
+        link: "map",
+        component: DefaultComponent,
         i: "fa fa-map-marker fa-2x",
     }, 
     {
-        caption: "Хелп",
-        link: "Documentation",
+        caption: "Мы",
+        link: "about",
+        component: AboutComponent,
         i: "fa fa-info fa-2x",
     }
-]
-
-export default links;
+];

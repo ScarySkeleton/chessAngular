@@ -1,16 +1,28 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "allowJs": true,
     //"noEmit": true,
     //"outFile": "../out-tsc/app",
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
+    "paths": {
+      // APP
+      "app/*": ["app/*"],
+      "components/*": ["app/components/*"],
+      "services/*": ["app/services/*"],
+      "global/*": ["app/global/*"],
+      // ASSETS
+      "assets/*": ["assets/*"],
+      // SHARED
+      "shared/*": ["shared/*"],
+      "abstract/*": ["shared/abstract/*"],
+      "interfaces/*": ["shared/interfaces/*"]
+    },
     "module": "es2015",
     "types": []
   },
   "exclude": [
-    "node_modules",
+    "../node_modules/**",
     "public",
     "test.ts",
     "**/*.spec.ts"
