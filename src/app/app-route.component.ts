@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 
 import { links } from 'assets/pages/links';
 import { HomeComponent } from 'app/components/home/home.component';
@@ -18,7 +18,7 @@ let appRoute: Routes = links.map(link => {
 appRoute.push({ // or, maybe, would be better to add redirect to ?
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
 });
 
 // Add login

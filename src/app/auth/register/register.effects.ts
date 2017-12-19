@@ -16,7 +16,7 @@ class RegisterEffect {
     @Effect() 
     public register$ = this.actions$
         .ofType(REGISTER_REQUEST)
-        .do(action => console.log(action))
+        //.do(action => console.log(action))
         
 
     constructor(private actions$: Actions) {}
