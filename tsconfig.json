@@ -12,17 +12,17 @@
     "experimentalDecorators": true,
     "traceResolution": true,
     "target": "es5",
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "paths": {
       // APP
-      "app/": ["./src/app/"],
+      "app/": ["./app/"],
       "components/*": ["app/components/*"],
       "services/*": ["app/services/*"],
       "global/*": ["app/global/*"],
       // ASSETS
-      "assets/": ["./src/assets/"],
+      "assets/": ["./assets/"],
       // SHARED
-      "shared/": ["./src/shared/"],
+      "shared/": ["./shared/"],
       "interfaces/*": ["shared/interfaces/*"]
     },
     "typeRoots": [
