@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 
 import {IAction} from 'interfaces/IAction';
 import {IAppState} from 'interfaces/IAppState'
-import {IGlobalState} from 'global/global.reducer';
+import {IGlobalState} from 'interfaces/IGlobalState';
 
 @Injectable()
 export class GlobalService {

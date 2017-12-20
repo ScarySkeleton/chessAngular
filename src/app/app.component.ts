@@ -3,8 +3,7 @@ import {Store} from '@ngrx/store';
 import * as Rx from 'RxJS';
 
 import {GlobalService} from 'global/global.service';
-import {IGlobalState} from 'global/global.reducer';
-import {IGlobal} from 'interfaces/IGlobal';
+import {IGlobalState} from 'interfaces/IGlobalState';
 
 @Component({
   selector: 'app-root',
@@ -30,7 +29,7 @@ export class AppComponent {
     this.setSpinner(glState.global);
   }
 
-  setSpinner({isFetching}: IGlobal) {
+  setSpinner({isFetching}: IGlobalState) {
     this.isSpinnerActive = isFetching;
   }
 }
