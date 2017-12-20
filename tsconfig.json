@@ -8,12 +8,12 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "declaration": false,
-    //"moduleResolution": "node",
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "traceResolution": true,
     "target": "es5",
-    "baseUrl": "./src",
+    "baseUrl": "./",
     // "paths": {
     //   "@app/*": ["src/app/*"]
     // },
