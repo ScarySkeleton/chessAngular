@@ -13,9 +13,18 @@
     "traceResolution": true,
     "target": "es5",
     "baseUrl": "./",
-    // "paths": {
-    //   "@app/*": ["src/app/*"]
-    // },
+    "paths": {
+      // APP
+      "app/": ["./src/app/"],
+      "components/*": ["app/components/*"],
+      "services/*": ["app/services/*"],
+      "global/*": ["app/global/*"],
+      // ASSETS
+      "assets/": ["./src/assets/"],
+      // SHARED
+      "shared/": ["./src/shared/"],
+      "interfaces/*": ["shared/interfaces/*"]
+    },
     "typeRoots": [
       "node_modules/@types"
     ], 

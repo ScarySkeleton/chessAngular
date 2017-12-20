@@ -42,7 +42,7 @@ import {RegisterService} from 'services/auth/register.service';
 import {RegisterEffect} from 'app/auth/register/register.effects';
 // Reducers
 import {globalReducer} from 'global/global.reducer';
-import  {registerReducer} from 'app/auth/register/register.reducer.ts';
+import  {registerReducer} from 'app/auth/register/register.reducer';
 
 @NgModule({
   declarations: [
