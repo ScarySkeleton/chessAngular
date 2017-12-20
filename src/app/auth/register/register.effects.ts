@@ -4,6 +4,8 @@ import 'rxjs/add/operator/do';
 import {Observable} from 'rxjs/Observable';
 import {Action} from '@ngrx/store';
 
+import {FireBaseService} from 'shared/services/firebase.service';
+
 import {
     REGISTER_REQUEST,
     registerSuccess,
@@ -16,10 +18,12 @@ class RegisterEffect {
     @Effect() 
     public register$ = this.actions$
         .ofType(REGISTER_REQUEST)
-        //.do(action => console.log(action))
-        
+        .do(action => console.log(action))    
 
-    constructor(private actions$: Actions) {}
+    constructor(
+        private actions$: Actions,
+        private firebase: FireBaseService
+    ) {}
 }
 
 export {RegisterEffect}

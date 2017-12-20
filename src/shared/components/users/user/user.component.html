@@ -1,22 +1,12 @@
-<div class="container user">
+<li class="container users__list_element">
   <p>
-    <label> 
-      FIO: {{ user.surname }} {{ user.name }}
-     </label>
+    <label *ngIf="user.lastname">Last name: {{user.lastname}}</label> 
+    <label *ngIf="user.name">Name: {{ user.name }}</label>
   </p>
   <p>
-    <label>
-      Account: {{ user.nickname }}
-    </label>
+    <label *ngIf="user.nickname">Account: {{ user.nickname }}</label>
   </p>
   <p>
-    <label>
-      Email: {{ user.email }}
-    </label>
+    <label *ngIf="user.email">Email: {{ user.email }}</label>
   </p>
-  <p>
-    <label>
-      Birthday at: {{ user.dateOfBirth }}
-    </label>
-  </p>
-</div>
+</li>

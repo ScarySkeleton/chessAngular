@@ -1,5 +1,12 @@
 <div class="container users">
-  <p *ngFor="let user of users$ | async">
-    {{user.nickname}}
-  </p>
+  <h3> Already registered users:</h3>
+  <ul class="users__list">
+    <div *ngFor="let user of users$ | async">
+        <shared-user [user]="user"></shared-user>
+    </div>
+    
+    <!-- <li class="users__list_element" *ngFor="let user of users$ | async">
+        <span>{{user.name}} {{user.nickname}} {{user.lastname}}</span>
+    </li> -->
+  </ul>
 </div>

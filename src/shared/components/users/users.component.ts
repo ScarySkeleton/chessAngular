@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularFireDatabase} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
-
-import {USERS, DATA} from 'assets/dbschema';
 import {IUser} from 'shared/interfaces/IUser';
+import {Subscription} from 'rxjs/Subscription';
+
+import {isFetching, isnotFetching} from 'app/global/global.action';
+import {FireBaseService} from 'shared/services/firebase.service';
+import {USERS} from 'assets/dbschema';
 
 @Component({
   selector: 'shared-users',
@@ -12,25 +14,18 @@ import {IUser} from 'shared/interfaces/IUser';
 })
 export class UsersComponent implements OnInit {
 
-  public users$: Observable<IUser[]>;
+  public users$: Observable<any>;
 
   constructor(
-    private db: AngularFireDatabase
+    public dbService: FireBaseService
   ) { }
 
   ngOnInit(): void {
-    console.log(typeof this.getUsers(USERS))
     this.users$ = this.getUsers(USERS);
-    console.log(this.users$);
   }
 
-  getUsers(entity: string): any {
-    return this.db
-      .object(DATA)
-      .snapshotChanges()
-      .subscribe(data => {
-        console.log(data.payload.val()[entity]);
-        return data.payload.val()[entity]
-      });
+  getUsers(entity: string): Observable<IUser>  {
+    return this.dbService
+      .getData(entity);
   }
 }

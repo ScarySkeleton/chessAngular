@@ -1,7 +1,4 @@
-import {IGlobal} from './IGlobal';
-import {IRegister} from './IRegister';
+import {IGlobalState} from './IGlobalState';
+import {IRegisterState} from './IRegisterState';
 
-export interface IAppState {
-    global: IGlobal;
-    register: IRegister;
-}
+export interface IAppState extends IGlobalState, IRegisterState {}

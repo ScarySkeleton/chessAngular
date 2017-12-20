@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 
 import {IAppState} from 'interfaces/IAppState';
-import {IRegisterState} from 'app/auth/register/register.reducer';
+import {IRegisterState} from 'shared/interfaces/IRegisterState'
 import * as globalAction from 'global/global.action';
 import * as registerAction from 'app/auth/register/register.action';
 
@@ -14,7 +14,7 @@ export class RegisterService {
 
   constructor(private store: Store<IAppState>) { }
 
-  register(data) {
+  register(data): void {
     this.store.dispatch(globalAction.isFetching());
     this.store.dispatch(registerAction.registerRequest(data));
   }

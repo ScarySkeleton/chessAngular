@@ -36,7 +36,9 @@ import { DefaultComponent } from './components/default/default.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 // Services
 import {GlobalService} from 'global/global.service';
+import {DispatchService} from 'shared/services/dispatch.service';
 import {RegisterService} from 'services/auth/register.service';
+import {FireBaseService} from 'shared/services/firebase.service';
 // Effects 
 import {RegisterEffect} from 'app/auth/register/register.effects';
 // Reducers
@@ -89,7 +91,9 @@ import  {registerReducer} from 'app/auth/register/register.reducer';
   providers: [
     Actions,
     GlobalService,
-    RegisterService
+    DispatchService,
+    RegisterService,
+    FireBaseService
   ],
   bootstrap: [AppComponent]
 })

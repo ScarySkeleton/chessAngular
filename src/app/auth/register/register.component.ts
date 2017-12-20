@@ -2,9 +2,8 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as Rx from 'RxJS';
 
-import {IRegister} from 'interfaces/IRegister';
+import {IRegisterState} from 'interfaces/IRegisterState';
 import * as actions from './register.action';
-import {IRegisterState} from './register.reducer';
 import {RegisterService} from 'services/auth/register.service';
 import {IErrorMessage} from 'shared/interfaces/IErrorMessage';
 
@@ -20,8 +19,8 @@ export class RegisterComponent implements OnDestroy {
   private passwordCheck: string = "";
 
   // Observable
-  public registerSubscription: Rx.Subscription = this._registerSerivce.register$
-    .subscribe((register: IRegisterState) => console.log(register));
+  //public registerSubscription: Rx.Subscription = this._registerSerivce.register$
+  //  .subscribe((register: IRegisterState) => console.log(register));
 
   public readonly loginError: string = 'loginError';
   private readonly loginErrorMessage: string = 'Такой логин уже существует';
@@ -33,7 +32,7 @@ export class RegisterComponent implements OnDestroy {
   constructor(private _registerSerivce: RegisterService) { }
 
   public ngOnDestroy() {
-    this.registerSubscription.unsubscribe();
+    //this.registerSubscription.unsubscribe();
   }
 
   /*
