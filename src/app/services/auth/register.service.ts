@@ -4,7 +4,6 @@ import {Store} from '@ngrx/store';
 
 import {IAppState} from 'interfaces/IAppState';
 import {IRegisterState} from 'shared/interfaces/IRegisterState'
-import * as globalAction from 'global/global.action';
 import * as registerAction from 'app/auth/register/register.action';
 
 @Injectable()
@@ -15,7 +14,6 @@ export class RegisterService {
   constructor(private store: Store<IAppState>) { }
 
   register(data): void {
-    this.store.dispatch(globalAction.isFetching());
     this.store.dispatch(registerAction.registerRequest(data));
   }
 }
