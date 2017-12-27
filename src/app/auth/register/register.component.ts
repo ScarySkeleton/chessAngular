@@ -2,6 +2,10 @@ import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as Rx from 'RxJS';
 
+import {IAppState} from 'shared/interfaces/IAppState';
+import {IPopupState} from 'shared/interfaces/IPopupState';
+import {showPopup, isnotShowPopup} from 'shared/components/popup/popup.action';
+import {ErrorComponent} from 'shared/components/popup/error/error.component';
 import {IRegisterState} from 'interfaces/IRegisterState';
 import * as actions from './register.action';
 import {RegisterService} from 'services/auth/register.service';
@@ -18,9 +22,11 @@ export class RegisterComponent implements OnDestroy {
   private password: string; 
   private passwordCheck: string = "";
 
-  // Observable
-  //public registerSubscription: Rx.Subscription = this._registerSerivce.register$
-  //  .subscribe((register: IRegisterState) => console.log(register));
+  private isPopupShown: boolean;
+  private popup$: Rx.Subscription = this.store
+    .subscribe(({popup}: {popup: IPopupState}) => {
+      this.isPopupShown = popup.isShow;
+    });
 
   public readonly loginError: string = 'loginError';
   private readonly loginErrorMessage: string = 'Такой логин уже существует';
@@ -29,30 +35,31 @@ export class RegisterComponent implements OnDestroy {
 
   public errorMessage: any = {};
 
-  constructor(private _registerSerivce: RegisterService) { }
+  constructor(private _registerSerivce: RegisterService,
+    private store: Store<IAppState>) {}
 
   public ngOnDestroy() {
-    //this.registerSubscription.unsubscribe();
+    this.popup$.unsubscribe();
   }
 
   /*
     Login
   */
-  public NicknameInput({ target: { value: nickname }}: { target: { value: string }}): void {
+  public NicknameInput({target: {value: nickname}}: {target: {value: string}}): void {
     this.nickname = nickname;
   }
 
   /*
     Password
   */
-  passwordInput({ target: { value: password } }): void {
+  public passwordInput({ target: { value: password } }): void {
     this.password = password;
     
     this.resetErrorMessage(this.passwordError);
     this.setPasswordCheckInitState();
   }
 
-  passwordInputCheck({ target: { value: passwordCheck } }): void {
+  public passwordInputCheck({ target: { value: passwordCheck } }): void {
     this.passwordCheck = passwordCheck;
 
     if(!this.checkIfPasswordsEqual()) {
@@ -62,25 +69,41 @@ export class RegisterComponent implements OnDestroy {
   
     this.resetErrorMessage(this.passwordError);
   }
-  setPasswordCheckInitState(): void {
+  public setPasswordCheckInitState(): void {
     this.passwordCheck = "";
   }
 
-  checkIfPasswordsEqual(): boolean {
+  public checkIfPasswordsEqual(): boolean {
     return this.password === this.passwordCheck;
   }
 
   /*
     Common 
   */
-  resetErrorMessage(toReset): void {
+  public resetErrorMessage(toReset): void {
     this.errorMessage[toReset] = "";
   }
 
-  onRegister(): void {
+  public onRegister(): void {
     if(!this.checkIfPasswordsEqual()) {
-      // TODO
-      // Show, that the unnable to register because the error
+
+      // Show popup
+      const popup: IPopupState = {
+        isShow: true,
+        title: "Пароли не совпадают, попробуйте еще раз.",
+        childComponent: ErrorComponent
+      }
+
+      this.store.dispatch(new showPopup(popup));
+
+      // Hide popup after 5s
+      setTimeout(() => {
+        if(this.isPopupShown) {
+          this.store.dispatch(new isnotShowPopup());
+        }
+      }, 5000);
+
+      this.setPasswordCheckInitState();
       return;
     }
 

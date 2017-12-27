@@ -24,6 +24,7 @@ import {AuthComponent} from 'shared/components/auth/auth.component';
 import {UsersComponent} from 'shared/components/users/users.component';
 import {UserComponent} from 'shared/components/users/user/user.component';
 import {PopupComponent} from 'shared/components/popup/popup.component';
+import {ErrorComponent} from 'shared/components/popup/error/error.component';
 // Auth
 import {LogoutNavComponent} from 'shared/components/auth/logout-nav/logout-nav.component';
 import {LogoutComponent} from 'app/auth/logout/logout.component';
@@ -40,11 +41,14 @@ import {GlobalService} from 'global/global.service';
 import {DispatchService} from 'shared/services/dispatch.service';
 import {RegisterService} from 'services/auth/register.service';
 import {FireBaseService} from 'shared/services/firebase.service';
+//Directives
+import {AnchorDirective} from 'shared/directives/AnchorDirective';
 // Effects 
 import {RegisterEffect} from 'app/auth/register/register.effects';
 // Reducers
 import {globalReducer} from 'global/global.reducer';
-import  {registerReducer} from 'app/auth/register/register.reducer';
+import {registerReducer} from 'app/auth/register/register.reducer';
+import {popupReducer} from 'shared/components/popup/popup.reducer';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,7 @@ import  {registerReducer} from 'app/auth/register/register.reducer';
     UsersComponent,
     UserComponent,  
     PopupComponent,
+    ErrorComponent,
     // Auth 
     LogoutNavComponent,
     LogoutComponent,
@@ -69,6 +74,8 @@ import  {registerReducer} from 'app/auth/register/register.reducer';
     HomeComponent,
     DefaultComponent,
     PageNotFoundComponent,
+    // Derictives
+    AnchorDirective,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +83,7 @@ import  {registerReducer} from 'app/auth/register/register.reducer';
     appRoute, // Routing
     StoreModule.forRoot({
       global: globalReducer,
+      popup: popupReducer,
       register: registerReducer
     }),
     StoreDevtoolsModule.instrument({
@@ -97,8 +105,10 @@ import  {registerReducer} from 'app/auth/register/register.reducer';
     GlobalService,
     DispatchService,
     RegisterService,
-    FireBaseService
+    FireBaseService,
   ],
+  // For dynamic components
+  entryComponents: [ErrorComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

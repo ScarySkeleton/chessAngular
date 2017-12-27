@@ -25,7 +25,10 @@ class RegisterEffect {
         .map((action: IAction) => action.payload)
         .switchMap(data => this.firebase.setData(USERS, data, null)
             .do(() => registerSuccess())
-            .catch(() => Observable.of(registerFailure())))
+            .catch(() => {
+                //this.store.dispatch()
+                return Observable.of(registerFailure())
+            }))
         
         
         

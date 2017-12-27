@@ -1,8 +1,7 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, SimpleChanges, OnInit, OnChanges, Input } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 
 import {IUser} from 'shared/interfaces/IUser';
-import {SimpleChanges} from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'shared-user',
