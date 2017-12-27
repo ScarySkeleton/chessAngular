@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+
+.popup-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .popup {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top:0;
+    bottom: 0;
+    margin-top: 35%;
+    overflow-y: auto;
+    height: 30%;
+    width: 30%;position: absolute;
+    padding: $commonPaddingMedium;
+
+    background: $vWhite;
+    border-radius: $borderRadiusMedium;
+    transition: all 5s ease-in-out;
+
+    &__title {
+        font-size: $mediumSize;
+        font-family: Tahoma, Arial, sans-serif;
+        border-bottom: $largeLine solid $colGray;
+    }
+
+    &__close {
+        cursor: pointer;
+        color: #777;
+        font: 14px/100% arial, sans-serif;
+        position: absolute;
+        right: 5px;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #fff;
+        top: 5px;
+
+        &:after {
+            content: '✖'; /* UTF-8 symbol */
+          }
+    }
+  }
+
+  @media screen and (max-width: 700px){
+    .popup{
+      width: 70%;
+    }
+  }

@@ -23,6 +23,7 @@ import {TabComponent} from 'shared/components/tab/tab.component';
 import {AuthComponent} from 'shared/components/auth/auth.component';
 import {UsersComponent} from 'shared/components/users/users.component';
 import {UserComponent} from 'shared/components/users/user/user.component';
+import {PopupComponent} from 'shared/components/popup/popup.component';
 // Auth
 import {LogoutNavComponent} from 'shared/components/auth/logout-nav/logout-nav.component';
 import {LogoutComponent} from 'app/auth/logout/logout.component';
@@ -30,10 +31,10 @@ import {LoginNavComponent} from 'shared/components/auth/login-nav/login-nav.comp
 import {LoginComponent} from 'app/auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
 // Containers
-import { AboutComponent } from './components/about/about.component';
-import { HomeComponent } from './components/home/home.component';
-import { DefaultComponent } from './components/default/default.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {AboutComponent} from './components/about/about.component';
+import {HomeComponent} from './components/home/home.component';
+import {DefaultComponent} from './components/default/default.component';
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 // Services
 import {GlobalService} from 'global/global.service';
 import {DispatchService} from 'shared/services/dispatch.service';
@@ -44,7 +45,6 @@ import {RegisterEffect} from 'app/auth/register/register.effects';
 // Reducers
 import {globalReducer} from 'global/global.reducer';
 import  {registerReducer} from 'app/auth/register/register.reducer';
-import { TabErrorComponent } from './tab-error/tab-error.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +57,7 @@ import { TabErrorComponent } from './tab-error/tab-error.component';
     AuthComponent,
     UsersComponent,
     UserComponent,  
+    PopupComponent,
     // Auth 
     LogoutNavComponent,
     LogoutComponent,
@@ -68,7 +69,6 @@ import { TabErrorComponent } from './tab-error/tab-error.component';
     HomeComponent,
     DefaultComponent,
     PageNotFoundComponent,
-    TabErrorComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+<div class="popup-wrapper" *ngIf="isShow">
+  <div class="container popup">
+    <h2 class="popup__title">{{title}}</h2>
+    <span class="popup__close"
+      (click)="onClose()"></span>
+
+    <div class="popup__child">
+      {{childComponent}}
+    </div>
+  </div>
+</div>

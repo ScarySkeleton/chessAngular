@@ -1,4 +1,12 @@
 /*
+    Func
+*/
+@function size($curr, $increase) {
+    @return calc(#{$curr} * #{$increase});
+}
+
+
+/*
     Size
 */
 $bigSize: 2rem;
@@ -16,10 +24,6 @@ $commonMargin: 5px;
 $commonPadding: 5px;
 $commonPaddingMedium: calc(#{$commonPadding} * 1.5);
 $commonPaddingLarge: calc(#{$commonPaddingMedium} * 1.5);
-
-$borderRadiusSmall: 2px;
-$borderRadiusMedium: calc(#{$borderRadiusSmall} * 2);
-$borderRadiusLarge: calc(#{$borderRadiusMedium} * 2);
 
 /*
     Menu
@@ -47,3 +51,9 @@ $mediumSpeed: calc(#{$fastSpeed} * 2);
 /*
     Border
 */
+$smallLine: 1px;
+$mediumLine: size($smallLine, 2);
+$largeLine: size($mediumLine, 2);
+$borderRadiusSmall: 2px;
+$borderRadiusMedium: calc(#{$borderRadiusSmall} * 2);
+$borderRadiusLarge: calc(#{$borderRadiusMedium} * 2);
