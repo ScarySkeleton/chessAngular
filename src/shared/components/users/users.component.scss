@@ -1,0 +1,9 @@
+@import '../../styles/variables.scss';
+
+.users {
+    margin: $marginMedium;
+
+    &__title {
+        margin-bottom: $marginMedium;
+    }
+}

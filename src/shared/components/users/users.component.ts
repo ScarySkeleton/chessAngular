@@ -14,11 +14,9 @@ import {USERS} from 'assets/dbschema';
 })
 export class UsersComponent implements OnInit {
 
-  public users$: Observable<any>;
+  public users$: Observable<IUser>;
 
-  constructor(
-    public dbService: FireBaseService
-  ) { }
+  constructor(public dbService: FireBaseService) { }
 
   ngOnInit(): void {
     this.users$ = this.getUsers(USERS);

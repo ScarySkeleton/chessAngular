@@ -9,30 +9,24 @@ $smallSize: 0.5rem;
 /*
     Indents
 */
-$marginLeftMedium: $mediumSize;
-$marginTopMedium: $mediumSize;
-$marginBottomMedium: $mediumSize;
-$marginRightMedium: $mediumSize;
-$marginMedium: $marginLeftMedium $marginTopMedium $marginBottomMedium $marginRightMedium;
-
-$paddingLeft: $mediumSize;
-$paddingTop: $mediumSize;
-$paddingBottom: $mediumSize;
-$paddingRight: $mediumSize;
-$paddingMedium:  $paddingLeft $paddingTop $paddingBottom $paddingRight;
+$marginMedium: $mediumSize;
+$paddingMedium:  $mediumSize;
 
 $commonMargin: 5px;
 $commonPadding: 5px;
+$commonPaddingMedium: calc(#{$commonPadding} * 1.5);
+$commonPaddingLarge: calc(#{$commonPaddingMedium} * 1.5);
 
 $borderRadiusSmall: 2px;
-$borderRadiusMedium: 5px;
+$borderRadiusMedium: calc(#{$borderRadiusSmall} * 2);
+$borderRadiusLarge: calc(#{$borderRadiusMedium} * 2);
 
 /*
     Menu
 */
 $menuWidth: 60px;
 $navExpanded: 175px;
-$paddingLeftWithMenu: calc(#{$paddingLeft} + #{$menuWidth});
+$paddingLeftWithMenu: calc(#{$paddingMedium} + #{$menuWidth});
 
 
 /*
@@ -41,4 +35,15 @@ $paddingLeftWithMenu: calc(#{$paddingLeft} + #{$menuWidth});
 $vWhite: #ffffff;
 $vLightBlue: #fbfbfb;
 $vLightBlack: #e5e5e5;
+$colGray: #999;
 
+/*
+    Speed
+*/
+$fastSpeed: 0.2s;
+$mediumSpeed: calc(#{$fastSpeed} * 2);
+
+
+/*
+    Border
+*/

@@ -17,7 +17,7 @@ export class UserComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['user']) {
-      this.user = changes['user'].currentValue as IUser
+      this.user = changes['user'].currentValue as IUser;
     }
   }
 }

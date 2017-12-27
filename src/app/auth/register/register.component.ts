@@ -14,7 +14,7 @@ import {IErrorMessage} from 'shared/interfaces/IErrorMessage';
 })
 export class RegisterComponent implements OnDestroy {
 
-  private login: string;
+  private nickname: string;
   private password: string; 
   private passwordCheck: string = "";
 
@@ -38,8 +38,8 @@ export class RegisterComponent implements OnDestroy {
   /*
     Login
   */
-  public loginInput({ target: { value: login }}: { target: { value: string }}): void {
-    this.login = login;
+  public NicknameInput({ target: { value: nickname }}: { target: { value: string }}): void {
+    this.nickname = nickname;
   }
 
   /*
@@ -85,7 +85,7 @@ export class RegisterComponent implements OnDestroy {
     }
 
     this._registerSerivce.register({
-      logIn: this.login,
+      nickname: this.nickname,
       password: this.password
     });
   }

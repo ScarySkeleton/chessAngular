@@ -17,25 +17,39 @@ export class FireBaseService {
         private store: Store<IAppState>
     ) {}
 
-    setData(entity: string, value: object, fbAction: IFireBaseAction): any {
-        console.log("firebase set data");
+    setData(entity: string, value: object, fbAction: IFireBaseAction): Observable<any> {
         //this.store.dispatch(action);
-        console.log("firebase set", this.db.list(DATA), this.db.list(DATA[entity]));
 
-        return this.db
-            .list(DATA)
-            .push(value)
-            .then(() => console.log("data pushed"))
+        console.log(this.db.list(`${DATA}/${entity}`).push(value))
+        // console.log(this.db
+        //     .list(DATA[entity])
+        //     .push(value));
+
+        return Observable.throw(new Error("ERROR")).delay(500);
+
+        // return Observable.of(
+        //     this.db
+        //     .list(DATA[entity])
+        //     .push(value));
     }
 
     getData(entity: string): Observable<any>  {
         return this.db
           .object(DATA)
           .valueChanges()
-          .map(data => data[entity]);
-        //   .subscribe(data => {
-        //     console.log(data[entity]);
-        //     return data
-        //   });
+          .map(data => this.toArray(data[entity]));
       }
+
+    toArray(obj) {
+        let array = [],
+            key;
+
+      for(key in obj) {
+        if(obj.hasOwnProperty(key)) {
+            array.push(obj[key]);
+        }
+      }
+
+      return array;
+    }
 }

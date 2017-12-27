@@ -1,12 +1,9 @@
 <div class="container users">
-  <h3> Already registered users:</h3>
-  <ul class="users__list">
+  <h3 class="users__title bold"> Already registered users:</h3>
+
+  <ol class="users__list list-block">
     <div *ngFor="let user of users$ | async">
         <shared-user [user]="user"></shared-user>
     </div>
-    
-    <!-- <li class="users__list_element" *ngFor="let user of users$ | async">
-        <span>{{user.name}} {{user.nickname}} {{user.lastname}}</span>
-    </li> -->
-  </ul>
+  </ol>
 </div>

@@ -1,12 +1,12 @@
 <li class="container users__list_element">
   <p>
-    <label *ngIf="user.lastname">Last name: {{user.lastname}}</label> 
-    <label *ngIf="user.name">Name: {{ user.name }}</label>
+    <em *ngIf="user.lastname">Last name: {{user.lastname}}</em> 
+    <em *ngIf="user.name">Name: {{ user.name }}</em>
   </p>
   <p>
-    <label *ngIf="user.nickname">Account: {{ user.nickname }}</label>
+    <em *ngIf="user.nickname">Account: {{ user.nickname }}</em>
   </p>
   <p>
-    <label *ngIf="user.email">Email: {{ user.email }}</label>
+    <em *ngIf="user.email">Email: {{ user.email }}</em>
   </p>
 </li>

@@ -9,19 +9,17 @@ const initState: IRegisterState = {
 }
 
 export const registerReducer = 
-        (state:IRegisterState = initState, action: IAction) => {
+        (state:IRegisterState = initState, action: IAction): any => { // TODO: But need IRegisterState, not an any return type
     switch(action.type) {
         case actions.REGISTER_FAILURE: 
             return {
                 ...state,
-                ...action.payload,
                 isRegistered: false,
             }
         
         case actions.REGISTER_SUCCESS: 
             return {
                 ...state,
-                ...action.payload,
                 isRegistered: true,
             }
         
