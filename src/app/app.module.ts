@@ -42,8 +42,10 @@ import {GlobalService} from 'shared/services/global.service';
 import {DispatchService} from 'shared/services/dispatch.service';
 import {RegisterService} from 'services/auth/register.service';
 import {FireBaseService} from 'shared/services/firebase.service';
-//Directives
+// Directives
 import {AnchorDirective} from 'shared/directives/AnchorDirective';
+// Pipe
+import {ToArrayPipe} from 'shared/pipes/toArray.pipe';
 // Effects 
 import {RegisterEffect} from 'app/auth/register/register.effects';
 // Reducers
@@ -78,6 +80,8 @@ import {popupReducer} from 'shared/components/popup/popup.reducer';
     // Derictives
     AnchorDirective,
     SpinnerComponent,
+    // Pipes
+    ToArrayPipe,
   ],
   imports: [
     BrowserModule,

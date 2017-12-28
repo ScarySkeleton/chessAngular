@@ -35,22 +35,9 @@ export class FireBaseService {
         let data = this.db
             .object(DATA)
             .valueChanges()
-            .map(data => this.toArray(data[entity]))
+            .map(data => data[entity])
             .do(() => this.store.dispatch(globalAction.isnotFetching()));
 
         return data;
       }
-
-    toArray(obj) {
-        let array = [],
-            key;
-
-      for(key in obj) {
-        if(obj.hasOwnProperty(key)) {
-            array.push(obj[key]);
-        }
-      }
-
-      return array;
-    }
 }
