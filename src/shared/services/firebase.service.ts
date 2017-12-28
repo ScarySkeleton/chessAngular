@@ -5,7 +5,7 @@ import {Store} from '@ngrx/store';
 
 import {IAppState} from 'shared/interfaces/IAppState';
 import {IFireBaseAction} from 'shared/interfaces/IFireBaseAction';
-import * as globalAction from 'app/global/global.action';
+import * as globalAction from 'shared/store/global.action';
 import {DATA} from 'assets/dbschema';
 import {Subscription} from 'rxjs/Subscription';
 
@@ -18,12 +18,9 @@ export class FireBaseService {
     ) {}
 
     setData(entity: string, value: object, fbAction: IFireBaseAction): Observable<any> {
-        //this.store.dispatch(action);
 
-        console.log(this.db.list(`${DATA}/${entity}`).push(value))
-        // console.log(this.db
-        //     .list(DATA[entity])
-        //     .push(value));
+        this.store.dispatch(globalAction.isFetching());
+        this.store.dispatch(globalAction.isnotFetching());
 
         return Observable.throw(new Error("ERROR")).delay(500);
 
@@ -34,10 +31,14 @@ export class FireBaseService {
     }
 
     getData(entity: string): Observable<any>  {
-        return this.db
-          .object(DATA)
-          .valueChanges()
-          .map(data => this.toArray(data[entity]));
+        this.store.dispatch(globalAction.isFetching());
+        let data = this.db
+            .object(DATA)
+            .valueChanges()
+            .map(data => this.toArray(data[entity]))
+            .do(() => this.store.dispatch(globalAction.isnotFetching()));
+
+        return data;
       }
 
     toArray(obj) {

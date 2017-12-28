@@ -1,4 +1,4 @@
-import {Component, ViewChild, ComponentFactoryResolver, OnInit, AfterViewInit, OnDestroy} from '@angular/core';
+import {Component, ViewChild, ComponentFactoryResolver, OnInit, AfterViewChecked, OnDestroy} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as Rx from 'RxJS';
 
@@ -12,7 +12,7 @@ import {isnotShowPopup} from './popup.action';
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss']
 })
-export class PopupComponent implements OnInit, AfterViewInit, OnDestroy {
+export class PopupComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   @ViewChild(AnchorDirective) anchor: AnchorDirective;
 
@@ -22,14 +22,12 @@ export class PopupComponent implements OnInit, AfterViewInit, OnDestroy {
   
   public popup$: Rx.Subscription = this.store
     .subscribe(({popup}: {popup: IPopupState}): void => {
-      console.log(popup);
       this.isShow = popup.isShow;
       this.title = popup.title;
       this.childComponent = popup.childComponent;
 
       if(this.childComponent) {
-        //this.renderChild();
-        this.ngAfterViewInit();
+        this.ngAfterViewChecked();
       }
     });
 
@@ -37,14 +35,12 @@ export class PopupComponent implements OnInit, AfterViewInit, OnDestroy {
     private componentFactoryResolver: ComponentFactoryResolver) { }
 
   public ngOnInit(): void {
-    console.log("popup init"); 
     if(this.childComponent) {
       this.renderChild();
     }
   }
 
-  public ngAfterViewInit(): void {
-    console.log("ng after view checked");
+  public ngAfterViewChecked(): void {
     this.renderChild();
   }
 
@@ -55,22 +51,16 @@ export class PopupComponent implements OnInit, AfterViewInit, OnDestroy {
   public renderChild(): void {
     // If can't find anchor - return
     if(!this.anchor) {
-      console.log("can't find anchor");
       return;
     }
-    console.log("renderChild. FIND ANCHOR");
-    console.log("anchor", this.anchor);
 
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.childComponent);
-    console.log(componentFactory);
     let viewContainerRef = this.anchor.viewContainerRef;
-    console.log(viewContainerRef);
     viewContainerRef.clear();
 
     let componentRef = viewContainerRef.createComponent(componentFactory);
-    console.log(componentRef);
     // Intance will using for, for example, Input() el
-    //componentRef.instance.data = 
+    //<CompType>componentRef.instance.data = 
   }
 
   public onClose(): void {

@@ -112,5 +112,4 @@ export class RegisterComponent implements OnDestroy {
       password: this.password
     });
   }
-
 }

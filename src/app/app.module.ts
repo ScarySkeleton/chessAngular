@@ -25,6 +25,7 @@ import {UsersComponent} from 'shared/components/users/users.component';
 import {UserComponent} from 'shared/components/users/user/user.component';
 import {PopupComponent} from 'shared/components/popup/popup.component';
 import {ErrorComponent} from 'shared/components/popup/error/error.component';
+import {SpinnerComponent} from 'shared/components/spinner/spinner.component';
 // Auth
 import {LogoutNavComponent} from 'shared/components/auth/logout-nav/logout-nav.component';
 import {LogoutComponent} from 'app/auth/logout/logout.component';
@@ -37,7 +38,7 @@ import {HomeComponent} from './components/home/home.component';
 import {DefaultComponent} from './components/default/default.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 // Services
-import {GlobalService} from 'global/global.service';
+import {GlobalService} from 'shared/services/global.service';
 import {DispatchService} from 'shared/services/dispatch.service';
 import {RegisterService} from 'services/auth/register.service';
 import {FireBaseService} from 'shared/services/firebase.service';
@@ -46,7 +47,7 @@ import {AnchorDirective} from 'shared/directives/AnchorDirective';
 // Effects 
 import {RegisterEffect} from 'app/auth/register/register.effects';
 // Reducers
-import {globalReducer} from 'global/global.reducer';
+import {globalReducer} from 'shared/store/global.reducer';
 import {registerReducer} from 'app/auth/register/register.reducer';
 import {popupReducer} from 'shared/components/popup/popup.reducer';
 
@@ -76,6 +77,7 @@ import {popupReducer} from 'shared/components/popup/popup.reducer';
     PageNotFoundComponent,
     // Derictives
     AnchorDirective,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

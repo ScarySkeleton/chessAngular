@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {IUser} from 'shared/interfaces/IUser';
 import {Subscription} from 'rxjs/Subscription';
 
-import {isFetching, isnotFetching} from 'app/global/global.action';
+import {isFetching, isnotFetching} from 'shared/store/global.action';
 import {FireBaseService} from 'shared/services/firebase.service';
 import {USERS} from 'assets/dbschema';
 
