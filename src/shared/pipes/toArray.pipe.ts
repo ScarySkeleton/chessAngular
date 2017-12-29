@@ -4,10 +4,10 @@ import {Pipe} from '@angular/core';
     name: "toArray"
 })
 export class ToArrayPipe {
-    transform(elem: any) {
+    transform(elem: any): Array<any> {
         
         if(elem === null) {
-            return null;//new Error("The elemen't cannot be null.");
+            return [];//new Error("The elemen't cannot be null.");
         }
 
         const array = [];
@@ -26,7 +26,7 @@ export class ToArrayPipe {
                 return array;
 
             default: 
-                return null; //new Error("Cannot understand the type of the input variable");
+                return []; //new Error("Cannot understand the type of the input variable");
         }
     }
 }
