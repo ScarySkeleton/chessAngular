@@ -101,7 +101,7 @@ export class RegisterComponent implements OnDestroy {
         if(this.isPopupShown) {
           this.store.dispatch(new isnotShowPopup());
         }
-      }, 5000);
+      }, 50000);
 
       this.setPasswordCheckInitState();
       return;
