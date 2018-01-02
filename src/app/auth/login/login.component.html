@@ -2,22 +2,31 @@
 <div class="container form login">
     <div class='form__element form__element-login'>
         <label class='form__element_description form__element_description-login'>Логин:</label>
-        <input class='form__element_data form__element_data-login' type='text' />
+        <input 
+          class='form__element_data form__element_data-login' 
+          type='text'
+          (input)="preLoginCheck($event)"
+          [(ngModel)]="loginData" />
         <label class='form__element_error form__element_error-login'></label>
     </div>
 
     <div class='form__element form__element-login'>
         <label class='form__element_description form__element_description-login'>Пароль:</label>
-        <input class='form__element_data form__element_data-login' type='password' />
+        <input 
+          class='form__element_data form__element_data-login' 
+          type='password'
+          [(ngModel)]="passwordData" />
         <label class='form__element_error form__element_error-login'></label>
     </div>
     
   
     <div class='form__element'>
-      <button class='form__element_button form__element_button-reset form__element_button-reset-login'>
+      <button class='form__element_button form__element_button-reset form__element_button-reset-login'
+        (click)="clear()">
         Очистить
       </button>
-      <button class='form__element_button form__element_button-apply form__element_button-apply-login'>
+      <button class='form__element_button form__element_button-apply form__element_button-apply-login'
+        (click)="enter()">
           Войти
         </button>
     </div>

@@ -35,8 +35,10 @@ export class FireBaseService {
         let data = this.db
             .object(DATA)
             .valueChanges()
-            .map(data => data[entity])
-            .do(() => this.store.dispatch(globalAction.isnotFetching()));
+            .do(() => this.store.dispatch(globalAction.isnotFetching()))
+            .map(data => {
+                //console.log(data[entity])
+                data[entity]});
 
         return data;
       }
