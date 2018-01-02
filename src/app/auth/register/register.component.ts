@@ -1,32 +1,17 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Store} from '@ngrx/store';
-import * as Rx from 'RxJS';
+import {Component} from '@angular/core';
 
-import {IAppState} from 'shared/interfaces/IAppState';
-import {IPopupState} from 'shared/interfaces/IPopupState';
-import {showPopup, isnotShowPopup} from 'shared/components/popup/popup.action';
-import {ErrorComponent} from 'shared/components/popup/error/error.component';
-import {IRegisterState} from 'interfaces/IRegisterState';
-import * as actions from './register.action';
 import {RegisterService} from 'services/auth/register.service';
-import {IErrorMessage} from 'shared/interfaces/IErrorMessage';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnDestroy {
+export class RegisterComponent {
 
   private nickname: string;
   private password: string; 
   private passwordCheck: string = "";
-
-  private isPopupShown: boolean;
-  private popup$: Rx.Subscription = this.store
-    .subscribe(({popup}: {popup: IPopupState}) => {
-      this.isPopupShown = popup.isShow;
-    });
 
   public readonly loginError: string = 'loginError';
   private readonly loginErrorMessage: string = 'Такой логин уже существует';
@@ -35,12 +20,8 @@ export class RegisterComponent implements OnDestroy {
 
   public errorMessage: any = {};
 
-  constructor(private _registerSerivce: RegisterService,
-    private store: Store<IAppState>) {}
-
-  public ngOnDestroy() {
-    this.popup$.unsubscribe();
-  }
+  constructor(private _registerSerivce: RegisterService) {} //,
+    //private store: Store<IAppState>) {}
 
   /*
     Login
@@ -86,23 +67,7 @@ export class RegisterComponent implements OnDestroy {
 
   public onRegister(): void {
     if(!this.checkIfPasswordsEqual()) {
-
-      // Show popup
-      const popup: IPopupState = {
-        isShow: true,
-        title: "Пароли не совпадают, попробуйте еще раз.",
-        childComponent: ErrorComponent
-      }
-
-      this.store.dispatch(new showPopup(popup));
-
-      // Hide popup after 5s
-      setTimeout(() => {
-        if(this.isPopupShown) {
-          this.store.dispatch(new isnotShowPopup());
-        }
-      }, 50000);
-
+      this._registerSerivce.passwordsAreNotEqual();
       this.setPasswordCheckInitState();
       return;
     }

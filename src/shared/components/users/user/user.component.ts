@@ -4,7 +4,7 @@ import {BehaviorSubject} from 'rxjs';
 import {IUser} from 'shared/interfaces/IUser';
 
 @Component({
-  selector: 'shared-user',
+  selector: 'chess-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })

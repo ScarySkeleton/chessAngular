@@ -3,7 +3,7 @@
 
   <ol class="users__list list-block">
     <div *ngFor="let user of users$ | async | toArray">
-        <shared-user [user]="user"></shared-user>
+        <chess-user [user]="user"></chess-user>
     </div>
   </ol>
 </div>
