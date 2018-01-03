@@ -20,8 +20,7 @@ export class RegisterComponent {
 
   public errorMessage: any = {};
 
-  constructor(private _registerSerivce: RegisterService) {} //,
-    //private store: Store<IAppState>) {}
+  constructor(private _registerSerivce: RegisterService) {}
 
   /*
     Login

@@ -12,7 +12,7 @@ import {ErrorComponent} from 'shared/components/popup/error/error.component';
 @Injectable()
 export class RegisterService implements OnDestroy {
 
-  private isPopupShown: boolean;
+  public isPopupShown: boolean = false;
   private popup$: Rx.Subscription = this.store
     .subscribe(({popup}: {popup: IPopupState}) => {
       this.isPopupShown = popup.isShow;
@@ -28,7 +28,7 @@ export class RegisterService implements OnDestroy {
     this.store.dispatch(registerAction.registerRequest(data));
   }
 
-  passwordsAreNotEqual() {
+  passwordsAreNotEqual(): void {
     // Show popup
     const popup: IPopupState = {
       isShow: true,
