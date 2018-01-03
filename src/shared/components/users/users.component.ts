@@ -8,7 +8,7 @@ import {FireBaseService} from 'shared/services/firebase.service';
 import {USERS} from 'assets/dbschema';
 
 @Component({
-  selector: 'shared-users',
+  selector: 'chess-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })

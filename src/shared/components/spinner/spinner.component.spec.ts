@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {SpinnerComponent} from './spinner.component';
+import {testScheduler} from 'shared/helpers/test';
 
-import { SpinnerComponent } from './spinner.component';
+import {TestScheduler} from 'RxJS/testing/TestScheduler';
 
 describe('SpinnerComponent', () => {
-  let component: SpinnerComponent;
-  let fixture: ComponentFixture<SpinnerComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SpinnerComponent ]
-    })
-    .compileComponents();
-  }));
+  
+  let sut: SpinnerComponent;
+  let globalServiceMock: any;
+  let schedule: TestScheduler;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpinnerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    schedule = testScheduler();
+
+    globalServiceMock = jasmine.createSpy('globalServiceMock');
+    globalServiceMock.globalState$ = schedule.createHotObservable('--a--');
+    
+    sut = new SpinnerComponent(globalServiceMock);
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(sut).toBeTruthy();
   });
 });

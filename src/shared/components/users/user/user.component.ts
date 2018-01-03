@@ -1,10 +1,10 @@
-import { Component, SimpleChanges, OnInit, OnChanges, Input } from '@angular/core';
+import {Component, SimpleChanges, OnChanges, Input} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 
 import {IUser} from 'shared/interfaces/IUser';
 
 @Component({
-  selector: 'shared-user',
+  selector: 'chess-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
