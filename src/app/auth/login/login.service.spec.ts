@@ -15,8 +15,8 @@ describe('LoginService', () => {
     let scheduler: TestScheduler;
     let actions: Subject<any>;
 
-    function init(storeMarble: string = '--a--', storeVariable: any = {},
-        fireMarble: string = '-----b-----', fireVariable: any = {}) {
+    function init(storeMarble: string = '-a-', storeVariable: any = {},
+        fireMarble: string = '--b--', fireVariable: any = {}) {
         
         if(!storeMarble) {
             storeVariable = createMarble(storeVariable);
@@ -29,7 +29,7 @@ describe('LoginService', () => {
         if(!fireMarble) {
             fireMarble = createMarble(fireVariable);
         }
-        mockFireBaseObservable = scheduler.createHotObservable('--n--', {
+        mockFireBaseObservable = scheduler.createHotObservable('---n---', {
             nickname: 'asd',
             password: 'asd'
         });
@@ -50,5 +50,18 @@ describe('LoginService', () => {
 
     it('should be created', () => {
         expect(sut).toBeTruthy();
+    });
+
+    it('should get all users', () => {
+        init('--s--', {
+            c: 'allUsers'
+        })
+
+        scheduler.expectObservable(sut.allUsers$)
+            .toBe('--s--', {
+                c: 'allUsers'
+            });
+
+        scheduler.flush();
     })
 })
