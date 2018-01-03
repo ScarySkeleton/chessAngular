@@ -22,4 +22,8 @@ function testScheduler(): TestScheduler {
     });
 }
 
-export {take, testScheduler};
+function createMarble(variable: any = {}) {
+    return `-${Object.keys(variable).join('-')}-`;
+}
+
+export {take, testScheduler, createMarble};

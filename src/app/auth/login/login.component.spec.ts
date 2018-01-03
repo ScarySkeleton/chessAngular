@@ -1,25 +1,39 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+// import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+// import {FormsModule} from '@angular/forms';
+// import {Store, StoreModule} from '@ngrx/store';
 
-import { LoginComponent } from './login.component';
+// import {loginReducer} from './login.reducer';
+// import {LoginService} from './login.service';
+// import {LoginComponent} from './login.component';
+// import {FireBaseService} from 'shared/services/firebase.service';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+// describe('LoginComponent', () => {
+//   let component: LoginComponent;
+//   let fixture: ComponentFixture<LoginComponent>;
+//   let mockFireBase: FireBaseService;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
-    })
-    .compileComponents();
-  }));
+//   beforeEach(async(() => {
+//     mockFireBase = jasmine.createSpy('mockFireBase');
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//     TestBed.configureTestingModule({
+//       declarations: [ LoginComponent ],
+//       imports: [
+//         FormsModule,
+//         FireBaseService,
+//         StoreModule.forRoot(loginReducer)
+//       ],
+//       providers: [LoginService]
+//     })
+//     .compileComponents();
+//   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(LoginComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
+
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
