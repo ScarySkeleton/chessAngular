@@ -19,11 +19,11 @@ export class UsersComponent implements OnInit {
   constructor(public dbService: FireBaseService) { }
 
   ngOnInit(): void {
-    this.users$ = this.getUsers(USERS);
+    this.users$ = this.getUsers(USERS); //this.dbService.getData(USERS); //this.getUsers(USERS);
   }
 
-  getUsers(entity: string): Observable<IUser>  {
+  getUsers(entity: string): Observable<any>  {
     return this.dbService
-      .getData(entity);
+      .getData(entity)
   }
 }

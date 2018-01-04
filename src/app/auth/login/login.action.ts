@@ -10,7 +10,6 @@ export class fetchAllUsers implements IAction {
 
 export class fetchAllUsersSuccess implements IAction {
     public readonly type: string = FETCH_ALL_USERS_SUCCESS;
-
     constructor(public payload: any) {}
 }
 

@@ -2,6 +2,7 @@ import {TestScheduler, Scheduler} from 'rxjs/Rx';
 import {Action} from '@ngrx/store';
 import {Observable, Subject} from 'rxjs';
 import {TestMessage} from 'rxjs/testing/TestMessage';
+import {expect} from 'karma-jasmine';
 
 function take({frame, notification: {kind, value, hasValue, error}}: any) {
     let _errorFix: any;

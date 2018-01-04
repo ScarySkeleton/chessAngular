@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import * as Rx from 'rxjs';
 
 import {LoginService} from 'app/auth/login/login.service';
 
@@ -12,10 +13,19 @@ export class LoginComponent implements OnInit {
   public loginData: string;
   public passwordData: string;
 
+  public allUsers: Array<string> | object;
+  public readonly allUsers$: Rx.Subscription | object = this.loginService
+    .allUsers$
+    .map(users => Object.keys(users).map(key => users[key].nickname))
+    .map(users => users.filter(user => !!user))
+    .subscribe(users => this.allUsers = users);
+
+  public loginMessage: string;
+
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
-    //this.loginService.loadAllUsers();
+    this.loginService.loadAllUsers();
   }
 
   clear() {
@@ -24,10 +34,13 @@ export class LoginComponent implements OnInit {
   }
 
   preLoginCheck({target: {value: login}}) {
-    console.log(login);
+    this.loginMessage = this.allUsers 
+      && (this.allUsers as Array<string>).includes(login)
+      ? ""
+      : "No such login in the system";
   }
 
   enter() {
-    this.loginService.loadAllUsers();
+    
   }
 }

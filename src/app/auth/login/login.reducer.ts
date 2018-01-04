@@ -8,6 +8,7 @@ const initState: ILoginState = {
     logIn: '',
     password: '',
     isLogined: false,
+    users: {}
 }
 
 const loginReducer = (state = initState, action: IAction): ILoginState => {
@@ -21,15 +22,19 @@ const loginReducer = (state = initState, action: IAction): ILoginState => {
         case actions.FETCH_ALL_USERS_SUCCESS:
             return {
                 ...state,
-                isLogined: true,
-                ...action.payload as ILoginState
+                isLogined: false,
+                users: {
+                    ...action.payload as ILoginState
+                }
             }
 
         case actions.FETCH_ALL_USERS_FAILURE: 
             return {
                 ...state,
                 isLogined: false,
-                ...action.payload as ILoginState
+                users: {
+                    ...action.payload as ILoginState
+                }
             }
 
         default:

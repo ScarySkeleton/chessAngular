@@ -25,23 +25,7 @@ class RegisterEffect {
         .map((action: IAction) => action.payload)
         .switchMap(data => this.firebase.setData(USERS, data, null)
             .do(() => registerSuccess())
-            .catch(() => {
-                //this.store.dispatch()
-                return Observable.of(registerFailure())
-            }))
-        
-        
-        
-                    // .map(() => {
-                    //     console.log("MAP");
-                    //     this.store.dispatch(registerSuccess())
-                    //     console.log("MAP MAP");
-                    // })
-                    // .catch(() => { 
-                    //     console.log("CATCH");
-                    //     this.store.dispatch(registerFailure())
-                    //     console.log("catch catch");
-                    // }))
+            .catch(() => Observable.of(registerFailure())))
 
     constructor(
         private store: Store<IAppState>,

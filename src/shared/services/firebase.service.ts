@@ -23,23 +23,14 @@ export class FireBaseService {
         this.store.dispatch(globalAction.isnotFetching());
 
         return Observable.throw(new Error("ERROR")).delay(500);
-
-        // return Observable.of(
-        //     this.db
-        //     .list(DATA[entity])
-        //     .push(value));
     }
 
     getData(entity: string): Observable<any>  {
         this.store.dispatch(globalAction.isFetching());
-        let data = this.db
+        return this.db
             .object(DATA)
             .valueChanges()
             .do(() => this.store.dispatch(globalAction.isnotFetching()))
-            .map(data => {
-                //console.log(data[entity])
-                data[entity]});
-
-        return data;
+            .map(data => data[entity]);
       }
 }

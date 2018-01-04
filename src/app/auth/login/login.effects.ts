@@ -16,20 +16,9 @@ export class LoginEffect {
     @Effect()
     public getUsers$: Rx.Observable<any> = this.actions$
          .ofType(actions.FETCH_ALL_USERS)
-         .switchMap(() => 
-                this.fireBaseService.getData(USERS)
-                // .map(data => {
-                //     console.log(data);
-                //     this.store.dispatch(new actions.fetchAllUsersSuccess(data))
-                // })
-                .do(data => {
-                    console.log(data)
-                    return this.store.dispatch(new actions.fetchAllUsersSuccess(data))
-                })
-                .catch(() => Rx.Observable.of(this.store.dispatch(new actions.fetchAllUsersFailure())))
-
-            //return Rx.Observable.of(new actions.fetchAllUsers());
-        );
+         .switchMap(() => this.fireBaseService.getData(USERS))
+         .map(users => new actions.fetchAllUsersSuccess(users))
+         
 
     constructor(private store: Store<IAppState>,
         private actions$: Actions,

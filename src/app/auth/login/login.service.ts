@@ -9,14 +9,13 @@ import {FireBaseService} from 'shared/services/firebase.service';
 @Injectable()
 export class LoginService {
 
-    public allUsers$: Rx.Observable<any> = this.store
-        .map(data => data);
+    public allUsers$: Rx.Observable<object> = this.store
+        .map(({login: {users}}) => users);
 
     constructor(private store: Store<IAppState>,
         private firebase: FireBaseService) { }
 
     loadAllUsers(): void {
-        //this.firebase.getData('Users').subscribe(res => console.log(res));
         this.store.dispatch(new fetchAllUsers()); 
     }
 

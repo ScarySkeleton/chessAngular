@@ -7,7 +7,7 @@
           type='text'
           (input)="preLoginCheck($event)"
           [(ngModel)]="loginData" />
-        <label class='form__element_error form__element_error-login'></label>
+        <label class='form__element_error form__element_error-login'>{{ loginMessage }}</label>
     </div>
 
     <div class='form__element form__element-login'>
