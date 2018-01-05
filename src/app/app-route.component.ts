@@ -1,11 +1,11 @@
 import {Routes, RouterModule} from '@angular/router';
 
-import { links } from 'assets/pages/links';
-import { HomeComponent } from 'app/components/home/home.component';
-import { LoginComponent } from 'app/auth/login/login.component';
-import { LogoutComponent } from 'app/auth/logout/logout.component';
-import { RegisterComponent } from 'app/auth/register/register.component';
-import { PageNotFoundComponent } from 'app/components/page-not-found/page-not-found.component';
+import {links} from 'assets/pages/links';
+import {HomeComponent} from 'app/components/home/home.component';
+import {LoginComponent} from 'app/auth/login/login.component';
+import {LogoutComponent} from 'app/auth/logout/logout.component';
+import {RegisterComponent} from 'app/auth/register/register.component';
+import {PageNotFoundComponent} from 'app/components/page-not-found/page-not-found.component';
 
 let appRoute: Routes = links.map(link => {
     return {
@@ -37,6 +37,12 @@ appRoute.push({
 appRoute.push({
     path: 'register',
     component: RegisterComponent
+})
+
+// For loggined user
+appRoute.push({
+    path: 'account',
+    loadChildren: 'app/user/user.module#UserModule'
 })
 
 // Add page not found component

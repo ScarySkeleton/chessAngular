@@ -37,20 +37,37 @@ import {AboutComponent} from './components/about/about.component';
 import {HomeComponent} from './components/home/home.component';
 import {DefaultComponent} from './components/default/default.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
-// Services
+/* 
+  Services
+*/
 import {GlobalService} from 'shared/services/global.service';
 import {DispatchService} from 'shared/services/dispatch.service';
 import {RegisterService} from 'services/auth/register.service';
 import {LoginService} from 'app/auth/login/login.service';
 import {FireBaseService} from 'shared/services/firebase.service';
-// Directives
+// Authorization serives
+import {AuthService} from 'shared/services/auth.service';
+import {AuthGuardService} from 'shared/services/auth.guard.service';
+
+/*
+  Directives
+*/
 import {AnchorDirective} from 'shared/directives/AnchorDirective';
-// Pipe
+
+/* 
+  Pipe
+*/
 import {ToArrayPipe} from 'shared/pipes/toArray.pipe';
-// Effects 
+
+/* 
+  Effects  
+*/
 import {RegisterEffect} from 'app/auth/register/register.effects';
 import {LoginEffect} from 'app/auth/login/login.effects';
-// Reducers
+
+/* 
+  Reducers
+*/
 import {globalReducer} from 'shared/store/global.reducer';
 import {registerReducer} from 'app/auth/register/register.reducer';
 import {loginReducer} from 'app/auth/login/login.reducer';
@@ -120,6 +137,8 @@ import {popupReducer} from 'shared/components/popup/popup.reducer';
     RegisterService,
     LoginService,
     FireBaseService,
+    AuthService,
+    AuthGuardService
   ],
   // For dynamic components
   entryComponents: [ErrorComponent],
