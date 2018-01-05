@@ -8,6 +8,7 @@ import {IAppState} from 'shared/interfaces/IAppState';
 import {IAction} from 'shared/interfaces/IAction';
 import {FireBaseService} from 'shared/services/firebase.service';
 import * as actions from './login.action';
+import * as globalAction from 'shared/store/global.action';
 import {USERS} from 'assets/dbschema';
 
 @Injectable()

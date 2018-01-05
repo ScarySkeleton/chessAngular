@@ -17,20 +17,15 @@ export class FireBaseService {
         private store: Store<IAppState>
     ) {}
 
-    setData(entity: string, value: object, fbAction: IFireBaseAction): Observable<any> {
+    setData = (entity: string, value: object): any =>
+        this.db
+            .list(`${DATA}/${entity}`)
+            .push(value);
 
-        this.store.dispatch(globalAction.isFetching());
-        this.store.dispatch(globalAction.isnotFetching());
-
-        return Observable.throw(new Error("ERROR")).delay(500);
-    }
-
-    getData(entity: string): Observable<any>  {
-        this.store.dispatch(globalAction.isFetching());
-        return this.db
+    getData = (entity: string): Observable<any> => 
+        this.db
             .object(DATA)
             .valueChanges()
-            .do(() => this.store.dispatch(globalAction.isnotFetching()))
             .map(data => data[entity]);
-      }
+
 }

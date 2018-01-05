@@ -8,6 +8,7 @@ import {Store} from '@ngrx/store';
 import {IAction} from 'shared/interfaces/IAction';
 import {IAppState} from 'shared/interfaces/IAppState';
 import {USERS} from 'assets/dbschema';
+import * as globalAction from 'shared/store/global.action';
 import {IFireBaseAction} from 'shared/interfaces/IFireBaseAction';
 import {FireBaseService} from 'shared/services/firebase.service';
 
@@ -23,10 +24,20 @@ class RegisterEffect {
     public register$ = this.actions$
         .ofType(REGISTER_REQUEST)
         .map((action: IAction) => action.payload)
-        .switchMap(data => this.firebase.setData(USERS, data, null)
-            .do(() => registerSuccess())
-            .catch(() => Observable.of(registerFailure())))
-
+        .do(() => this.store.dispatch(new globalAction.isFetching()))
+        .switchMap(data => this.firebase.setData(USERS, data)
+            .catch(() => false)
+        )
+        .do(() => this.store.dispatch(new globalAction.isnotFetching()))
+        .map(response => {
+            if(!!response) {
+                return registerSuccess();
+            }
+            else {
+                return registerFailure();
+            }
+        })
+            
     constructor(
         private store: Store<IAppState>,
         private actions$: Actions,
