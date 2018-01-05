@@ -5,6 +5,7 @@ import {IAction} from 'shared/interfaces/IAction';
 
 const initState: ISessionState = {
     user: null,
+    logOut: false, 
     isSessionActive: false
 };
 
@@ -16,6 +17,7 @@ const sessionReducer = (state: ISessionState = initState, action: IAction): ISes
                 user: {
                     ...action.payload
                 },
+                logOut: false,
                 isSessionActive: true,
             }
 
@@ -23,6 +25,7 @@ const sessionReducer = (state: ISessionState = initState, action: IAction): ISes
             return {
                 ...state,
                 user: null,
+                logOut: true,
                 isSessionActive: false
             }
         

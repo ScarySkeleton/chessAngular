@@ -31,20 +31,17 @@ export class AuthService {
     private readonly session$: Rx.Subscription = this.store
         .map(({session}) => session)
         .subscribe(session => {
-            this.sessionUserData = session.user;
-            this.isSessionActive = session.isSessionActive;
+            if(!this.isLogined) { // && session.user
+                this.sessionUserData = session.user;
+                this.isSessionActive = session.isSessionActive;
 
-            if(session.user) {
                 this.logIn(session.user);
+                return;
             }
-            // } else {
-            //     this.logOut();
-            // }
         });
 
-    private sessionUserData: IUser;
-    public isSessionActive: boolean; 
-
+    private sessionUserData: IUser = this.getLoginedUser();
+    public isSessionActive: boolean = this.isLogined; 
 
     /*
         Constructor
@@ -63,13 +60,10 @@ export class AuthService {
     }
 
     public get isLogined(): boolean {
-        //this.logIn = {nickname: "asdasd", password: "asddasd"};   
         let user = this.cookieService.get('user');
         if(user) {
-            console.log("true");
             return true;
         } else {
-            console.log("false");
             return false;
         }
     }

@@ -1,11 +1,13 @@
-import {Routes, RouterModule} from '@angular/router';
-
 import {links} from 'assets/pages/links';
 import {HomeComponent} from 'app/components/home/home.component';
 import {LoginComponent} from 'app/auth/login/login.component';
 import {LogoutComponent} from 'app/auth/logout/logout.component';
 import {RegisterComponent} from 'app/auth/register/register.component';
 import {PageNotFoundComponent} from 'app/components/page-not-found/page-not-found.component';
+import {AuthGuardService} from 'shared/services/auth.guard.service';
+import {NonAuthGuardService} from 'shared/services/nonauth.guard.service';
+
+import {Routes, RouterModule} from '@angular/router';
 
 let appRoute: Routes = links.map(link => {
     return {
@@ -24,22 +26,25 @@ appRoute.push({ // or, maybe, would be better to add redirect to ?
 // Add login
 appRoute.push({
     path: 'login',
-    component: LoginComponent
-})
-
-// Add logout
-appRoute.push({
-    path: 'logout',
-    component: LogoutComponent
+    component: LoginComponent,
+    canActivate: [NonAuthGuardService],
 })
 
 // Register
 appRoute.push({
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [NonAuthGuardService],
 })
 
-// For loggined user
+// Add logout
+appRoute.push({
+    path: 'logout',
+    component: LogoutComponent,
+    canActivate: [AuthGuardService],
+})
+
+// Add accout
 appRoute.push({
     path: 'account',
     loadChildren: 'app/user/user.module#UserModule'

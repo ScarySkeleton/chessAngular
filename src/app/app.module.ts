@@ -1,22 +1,26 @@
 import {environment} from '../environments/environment';
 
-import appRoute from './app-route.component';
+/*
+  Route
+*/
+import appRoute from 'app/route/app-route.component';
+//import appAuthRoute from 'app/route/app-route-auth.component';
+//import appNonAuthRoute from 'app/route/app-route-nonauth.component';
 // Common
 import {AppComponent} from './app.component';
 // Components
 import {LogoComponent} from 'shared/components/logo/logo.component';
 import {NavComponent} from 'shared/components/nav/nav.component';
 import {TabComponent} from 'shared/components/tab/tab.component';
-import {AuthComponent} from 'shared/components/auth/auth.component';
 import {UsersComponent} from 'shared/components/users/users.component';
 import {UserComponent} from 'shared/components/users/user/user.component';
 import {PopupComponent} from 'shared/components/popup/popup.component';
 import {ErrorComponent} from 'shared/components/popup/error/error.component';
 import {SpinnerComponent} from 'shared/components/spinner/spinner.component';
 // Auth
-import {LogoutNavComponent} from 'shared/components/auth/logout-nav/logout-nav.component';
+import {NavAuthComponent} from 'shared/components/nav/nav-auth/nav-auth.component';
+import {NavNonAuthComponent} from 'shared/components/nav/nav-nonauth/nav-nonauth.component';
 import {LogoutComponent} from 'app/auth/logout/logout.component';
-import {LoginNavComponent} from 'shared/components/auth/login-nav/login-nav.component';
 import {LoginComponent} from 'app/auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
 // Containers
@@ -29,12 +33,13 @@ import {PageNotFoundComponent} from './components/page-not-found/page-not-found.
 */
 import {GlobalService} from 'shared/services/global.service';
 import {DispatchService} from 'shared/services/dispatch.service';
-import {RegisterService} from 'services/auth/register.service';
+import {RegisterService} from 'app/auth/register/register.service';
 import {LoginService} from 'app/auth/login/login.service';
 import {FireBaseService} from 'shared/services/firebase.service';
 // Authorization serives
 import {AuthService} from 'shared/services/auth.service';
 import {AuthGuardService} from 'shared/services/auth.guard.service';
+import {NonAuthGuardService} from 'shared/services/nonauth.guard.service';
 
 /*
   Directives
@@ -87,15 +92,14 @@ import {CookieService} from 'ngx-cookie-service';
     LogoComponent,
     NavComponent,
     TabComponent,
-    AuthComponent,
     UsersComponent,
     UserComponent,  
     PopupComponent,
     ErrorComponent,
     // Auth 
-    LogoutNavComponent,
+    NavAuthComponent,
+    NavNonAuthComponent,     
     LogoutComponent,
-    LoginNavComponent, 
     LoginComponent,
     RegisterComponent,
     // Containers
@@ -112,7 +116,10 @@ import {CookieService} from 'ngx-cookie-service';
   imports: [
     BrowserModule,
     FormsModule,
-    appRoute, // Routing
+    //Routing
+    appRoute,
+    //appAuthRoute,
+    //appNonAuthRoute,
     // Reducers
     StoreModule.forRoot({
       global: globalReducer,
@@ -146,6 +153,7 @@ import {CookieService} from 'ngx-cookie-service';
     FireBaseService,
     AuthService,
     AuthGuardService,
+    NonAuthGuardService,
     CookieService
   ],
   // For dynamic components

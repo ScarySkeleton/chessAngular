@@ -1,8 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 import ILink from 'assets/pages/ILink';
-import { links } from 'assets/pages/links';
+import {links} from 'assets/pages/links';
+import {AuthService} from 'shared/services/auth.service';
+
+import {Component, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'chess-nav',
@@ -11,5 +12,8 @@ import { links } from 'assets/pages/links';
     encapsulation: ViewEncapsulation.None,
 })
 export class NavComponent {
-    links: Array<ILink> = links
+    links: Array<ILink> = links;
+
+    constructor(private authService: AuthService) {
+    }
 }

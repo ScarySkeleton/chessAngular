@@ -4,6 +4,10 @@
             <chess-tab [tab]='link' className='nav__text'></chess-tab>
         </li>
     </ul>
-
-    <chess-auth></chess-auth>
+    
+    <chess-nav-auth *ngIf="authService.isSessionActive; else nonauth"></chess-nav-auth>
+    <ng-template #nonauth>
+        <chess-nav-nonauth></chess-nav-nonauth>
+    </ng-template>
+    
 </nav>
