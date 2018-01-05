@@ -18,6 +18,4 @@ export class LoginService {
     loadAllUsers(): void {
         this.store.dispatch(new fetchAllUsers()); 
     }
-
-
 }
