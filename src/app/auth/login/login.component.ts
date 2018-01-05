@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import * as Rx from 'rxjs';
 
 import {LoginService} from 'app/auth/login/login.service';
+import {AuthService} from 'shared/services/auth.service';
 import {IUser} from 'shared/interfaces/IUser';
 import {timeToHideInfoMessage} from 'shared/common/time';
 
@@ -14,13 +15,6 @@ export class LoginComponent implements OnInit {
 
   public loginData: string;
   public passwordData: string;
-
-  public allUsers: Array<IUser>;
-  public readonly allUsers$: Rx.Subscription | object = this.loginService
-    .allUsers$
-    .map(users => Object.keys(users).map(key => users[key]))
-    .map(users => users.filter(user => !!user.nickname))
-    .subscribe(users => this.allUsers = users);
 
   public loginMessage: string;
   public readonly incorrectEnteringLoginMessage: string =
@@ -39,22 +33,21 @@ export class LoginComponent implements OnInit {
     Обратите внимание на "Caps Lock" и расскладку клавиатуры.
     Если Вы забыли пароль, тогда свяжитесь, пожалуйста, с администрацией.`;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService,
+    private authService: AuthService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.loginService.loadAllUsers();
   }
 
-  clear(): void {
+  public clear(): void {
     this.loginData = "";
     this.passwordData = "";
   }
 
-  preLoginCheck({target: {value: login}}): void {
-    this.loginMessage = this.allUsers 
-      && this.allUsers
-        .map(user => user.nickname)
-        .includes(login)
+  public preLoginCheck({target: {value: login}}): void {
+    this.loginMessage = this.authService.allUsersLogin 
+      && this.authService.checkUserExist(login)
       ? ""
       : this.incorrectEnteringLoginMessage;
 
@@ -63,32 +56,38 @@ export class LoginComponent implements OnInit {
     this.passwordData = "";
   }
 
-  clearPasswordErrorState() {
+  public clearPasswordErrorState(): void {
     this.passwordInccorectCount = 0;
     this.passwordMessage = "";
   }
 
-  enter() {
+  public enter(): void {
     if(this.loginData && this.passwordData) {
 
-      let userArrayId = this.allUsers
-        .map(user => user.nickname)
-        .indexOf(this.loginData);
+      let userArrayId = this.authService.getUserArrayId(this.loginData)
 
       if(userArrayId === -1) {
         this.loginMessage = this.incorrectLoginMessage;
         return;
       }
       
-      if(this.allUsers[userArrayId].password !== this.passwordData) {
+      if(this.authService.checkUserPassword(userArrayId, this.passwordData)) {
         this.passwordInccorectCount += 1;
 
         this.passwordMessage = this.passwordInccorectCount < this.passwordIncorrectNumbersToFalse
           ? this.incorrectPasswordMessage
           : this.incorrectPasswordTooManyTimesMessage;
+
+          return;
       } else {
         this.clearPasswordErrorState();
       }
+
+      // LogIn
+      this.loginService.logInUser({
+        nickname: this.loginData,
+        password: this.passwordData
+      })
     }
   }
 }

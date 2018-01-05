@@ -1,16 +1,3 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {StoreModule} from '@ngrx/store';
-import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {Actions, EffectsModule} from '@ngrx/effects';
-// FireBase
-import {AngularFireModule} from 'angularfire2';
-import {AngularFirestoreModule} from 'angularfire2/firestore';
-import {AngularFireAuthModule} from 'angularfire2/auth';
-// Firebase: Database
-import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
-
 import {environment} from '../environments/environment';
 
 import appRoute from './app-route.component';
@@ -72,6 +59,25 @@ import {globalReducer} from 'shared/store/global.reducer';
 import {registerReducer} from 'app/auth/register/register.reducer';
 import {loginReducer} from 'app/auth/login/login.reducer';
 import {popupReducer} from 'shared/components/popup/popup.reducer';
+import {sessionReducer} from 'shared/session/session.reducer';
+
+/*
+  NPM libs
+*/
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {Actions, EffectsModule} from '@ngrx/effects';
+// FireBase
+import {AngularFireModule} from 'angularfire2';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+// Firebase: Database
+import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
+// Auth
+import {CookieService} from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -113,6 +119,7 @@ import {popupReducer} from 'shared/components/popup/popup.reducer';
       popup: popupReducer,
       register: registerReducer,
       login: loginReducer,
+      session: sessionReducer,
     }),
     StoreDevtoolsModule.instrument({
        maxAge: 25
@@ -138,7 +145,8 @@ import {popupReducer} from 'shared/components/popup/popup.reducer';
     LoginService,
     FireBaseService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    CookieService
   ],
   // For dynamic components
   entryComponents: [ErrorComponent],
