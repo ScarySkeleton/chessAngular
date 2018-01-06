@@ -2,6 +2,8 @@ import {IUser} from './IUser';
 
 export interface ISessionState {
     user: IUser;
-    logOut: boolean;
+    logInFetch: boolean;
     isSessionActive: boolean;
+    logOutFetch: boolean;  
+    isSessionLogoutSuccess: boolean;
 }

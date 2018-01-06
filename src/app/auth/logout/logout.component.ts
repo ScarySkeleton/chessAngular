@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {LogoutService} from './logout.service';
+
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-logout',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private logOutService: LogoutService) {
   }
 
+  ngOnInit() {
+    this.logOutService.logOut();
+  }
 }

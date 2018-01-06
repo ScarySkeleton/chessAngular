@@ -2,10 +2,13 @@ import { HomeComponent } from 'app/components/home/home.component';
 import { AboutComponent } from 'app/components/about/about.component';
 import { DefaultComponent } from 'app/components/default/default.component';
 
+export const userAccountHomeLink: string = 'account';
+export const homeLink: string = 'home';
+
 export const links = [
     {
         caption: "Главная",
-        link: "home",
+        link: homeLink,
         component: HomeComponent,
         i: "fa fa-home fa-2x",
     },

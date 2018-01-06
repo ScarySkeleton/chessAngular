@@ -33,8 +33,11 @@ import {PageNotFoundComponent} from './components/page-not-found/page-not-found.
 */
 import {GlobalService} from 'shared/services/global.service';
 import {DispatchService} from 'shared/services/dispatch.service';
+import {NavigateService} from 'shared/services/navigate.service';
+import {SessionService} from 'shared/services/session.service';
 import {RegisterService} from 'app/auth/register/register.service';
 import {LoginService} from 'app/auth/login/login.service';
+import {LogoutService} from 'app/auth/logout/logout.service';
 import {FireBaseService} from 'shared/services/firebase.service';
 // Authorization serives
 import {AuthService} from 'shared/services/auth.service';
@@ -148,8 +151,11 @@ import {CookieService} from 'ngx-cookie-service';
     Actions,
     GlobalService,
     DispatchService,
+    NavigateService,
+    SessionService,
     RegisterService,
     LoginService,
+    LogoutService,
     FireBaseService,
     AuthService,
     AuthGuardService,
