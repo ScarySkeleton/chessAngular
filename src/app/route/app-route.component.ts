@@ -47,7 +47,7 @@ appRoute.push({
 // Add accout
 appRoute.push({
     path: 'account',
-    loadChildren: 'app/user/user.module#UserModule'
+    loadChildren: '../user/user.module#UserModule'
 })
 
 // Add page not found component
