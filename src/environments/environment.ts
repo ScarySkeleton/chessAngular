@@ -11,6 +11,6 @@ export const environment = {
     databaseURL: "https://chess-8b327.firebaseio.com",
     projectId: "chess-8b327",
     storageBucket: "chess-8b327.appspot.com",
-    messagingSenderId: "496247350089"
+    messagingSenderId: "496247350089",
   }
 };

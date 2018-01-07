@@ -24,7 +24,6 @@ export const globalReducer = (state:IGlobalState = initState, action: IAction) =
             }
         
         case actions.NAVIGATE_TO: 
-            console.log('navigate to', action);
             return {
                 ...state,
                 isFetching: false,
