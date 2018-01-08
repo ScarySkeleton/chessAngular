@@ -3,7 +3,7 @@ import {environment} from 'environments/environment';
 /*
   Route
 */
-import appRoute from 'app/route/app-route.component';
+import appRoute from 'app/app-route.component';
 //import appAuthRoute from 'app/route/app-route-auth.component';
 //import appNonAuthRoute from 'app/route/app-route-nonauth.component';
 // Common

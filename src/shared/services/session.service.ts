@@ -31,6 +31,7 @@ export class SessionService {
                 && session.logInFetch
                 && !session.logOutFetch
                 && !session.isSessionLogoutSuccess) {
+                session.user.password = this.securePassword(session.user.password);
                 this.set(sessionUserKey, JSON.stringify(session.user))
             }
 
@@ -68,5 +69,9 @@ export class SessionService {
 
     public get(key: string): string {
         return this.cookieService.get(key);
+    }
+
+    private securePassword(password: string): string {
+        return "secure_password";
     }
 }
