@@ -31,8 +31,9 @@ export class SessionService {
                 && session.logInFetch
                 && !session.logOutFetch
                 && !session.isSessionLogoutSuccess) {
-                session.user.password = this.securePassword(session.user.password);
-                this.set(sessionUserKey, JSON.stringify(session.user))
+                    this.delObjKey(session.user, "password");
+                    console.log(session.user);
+                    this.set(sessionUserKey, JSON.stringify(session.user))
             }
 
             // Session LogOut: begin
@@ -45,8 +46,8 @@ export class SessionService {
                 }
         });
 
-    private sessionUserData: IUser;// = this.getLoginedUser();
-    public isSessionActive: boolean;// = this.isLogined; 
+    private sessionUserData: IUser;
+    public isSessionActive: boolean;
 
     constructor(private store: Store<IAppState>,
         private cookieService: CookieService,
@@ -57,21 +58,19 @@ export class SessionService {
         this.cookieService.set(key, cookie);
         this.store.dispatch(new sessionAction.userLogIn(JSON.parse(cookie)));
         this.router.navigate([userAccountHomeLink]);
-        //this.store.dispatch(new navigateTo(userAccountHomeLink))
     }
 
     public del(key: string): void {
         this.cookieService.delete(key);
         this.store.dispatch(new sessionAction.userLogOut());
         this.router.navigate([homeLink]);
-        //this.store.dispatch(new navigateTo(homeLink))
     }
 
     public get(key: string): string {
         return this.cookieService.get(key);
     }
 
-    private securePassword(password: string): string {
-        return "secure_password";
+    private delObjKey(obj: object, key: string) {
+        return delete obj[key];
     }
 }
