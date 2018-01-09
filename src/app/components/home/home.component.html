@@ -9,3 +9,46 @@
       {{tile.text}}
     </mat-grid-tile>
   </mat-grid-list>
+
+
+<mat-card class="chess-register-form">
+  <mat-card-header>
+    <mat-card-title>
+      Запись на курс
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="chess-register-form__inputs">
+      <mat-form-field>
+        <input matInput placeholder="Имя"
+          [(ngModel)]="name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Фамилия"
+          [(ngModel)]="lastname">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Цель"
+          [(ngModel)]="goal"></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Тип курса"
+          [(ngModel)]="courseType">
+          <mat-option value="unknown">Неопределенно</mat-option>
+          <mat-option value="longTerm">Длительные занятия</mat-option>
+          <mat-option value="preparingForTournaments">Подготовка к соревнованиям</mat-option>
+          <mat-option value="other">Другой</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="chess-register-form__controls">
+      <button mat-raised-button color="warn"
+        (click)="onClear()">Очистить</button>
+      <button mat-raised-button>Записаться</button>
+    </div>
+  </mat-card-content>
+</mat-card>

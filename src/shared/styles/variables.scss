@@ -9,21 +9,25 @@
 /*
     Size
 */
-$bigSize: 2rem;
-$mediumSize: 1.5rem;
-$standartSize: 1rem;
-$smallSize: 0.5rem;
+$k-big-size: 2rem;
+$k-medium-size: 1.5rem;
+$k-standart-size: 1rem;
+$k-small-size: 0.5rem;
+$k-xs-small-size: 0.15rem;
+// Card
+$k-card-intent-root-small: $k-small-size;
+$k-card-intent-root-medium: $k-medium-size;
+$k-card-width: 400px;
 
 /*
     Indents
 */
-$marginMedium: $mediumSize;
-$paddingMedium:  $mediumSize;
+$marginMedium: $k-medium-size;
+$paddingMedium: $k-medium-size;
 
-$commonMargin: 5px;
-$commonPadding: 5px;
-$commonPaddingMedium: calc(#{$commonPadding} * 1.5);
-$commonPaddingLarge: calc(#{$commonPaddingMedium} * 1.5);
+$k-common-intent-small: 5px;
+$commonPaddingMedium: calc(#{$k-common-intent-small} * 1.5);
+$commonPaddingLarge: calc(#{$k-common-intent-small} * 1.5);
 
 /*
     Menu

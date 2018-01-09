@@ -14,13 +14,13 @@ body {
   font-family: Georgia, Times, serif;
 }
 .list-block li {
-  padding: $commonPadding;
+  padding: $k-common-intent-small;
 }
 .list-block p { 
-  padding: $commonPadding;
+  padding: $k-common-intent-small;
   font-style: normal; 
   font-family: Arial; 
-  font-size: $standartSize;
+  font-size: $k-standart-size;
   border-left: $borderRadiusSmall solid $colGray;
   transition: $mediumSpeed;
 

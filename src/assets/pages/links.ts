@@ -12,12 +12,12 @@ export const links = [
         component: HomeComponent,
         i: "fa fa-home fa-2x",
     },
-    {
-        caption: "Играть",
-        link: "game", 
-        component: DefaultComponent,
-        i: "fa fa-gamepad"
-    },
+    // {
+    //     caption: "Играть",
+    //     link: "game", 
+    //     component: DefaultComponent,
+    //     i: "fa fa-gamepad"
+    // },
     {
         caption: "Уроки",
         link: "lessons",

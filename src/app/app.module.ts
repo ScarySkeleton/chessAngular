@@ -110,15 +110,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LoginComponent,
     RegisterComponent,
     // Containers
-    AboutComponent,
     HomeComponent,
+    AboutComponent,
     DefaultComponent,
     PageNotFoundComponent,
     // Derictives
     AnchorDirective,
     SpinnerComponent,
     // Pipes
-    ToArrayPipe,
+    ToArrayPipe
   ],
   imports: [
     BrowserModule,
@@ -166,7 +166,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AuthService,
     AuthGuardService,
     NonAuthGuardService,
-    CookieService
+    CookieService,
   ],
   // For dynamic components
   entryComponents: [ErrorComponent],
