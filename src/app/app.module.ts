@@ -68,6 +68,8 @@ import {registerReducer} from 'app/auth/register/register.reducer';
 import {loginReducer} from 'app/auth/login/login.reducer';
 import {popupReducer} from 'shared/components/popup/popup.reducer';
 import {sessionReducer} from 'shared/session/session.reducer';
+//Materials 
+import {MaterialModule} from './material.module';
 
 /*
   NPM libs
@@ -86,6 +88,8 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database';
 // Auth
 import {CookieService} from 'ngx-cookie-service';
+// Material
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -146,6 +150,8 @@ import {CookieService} from 'ngx-cookie-service';
     AngularFireDatabaseModule,
     // EFFECTS
     //EffectsModule.run()
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [
     Actions,
