@@ -11,6 +11,7 @@ const initState: ISessionState = {
 
 const sessionReducer = (state: ISessionState = initState, action: IAction): ISessionState => {
     switch(action.type) {
+
         case actions.USER_LOG_IN:
             return {
                 ...state,
