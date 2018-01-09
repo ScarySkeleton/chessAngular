@@ -5,12 +5,26 @@ import {IAction} from 'shared/interfaces/IAction';
 
 const initState: ISessionState = {
     user: null,
-    logOut: false, 
-    isSessionActive: false
+    logInFetch: false,
+    isSessionActive: false,    
+    logOutFetch: false,
+    isSessionLogoutSuccess: false,
 };
 
 const sessionReducer = (state: ISessionState = initState, action: IAction): ISessionState => {
     switch(action.type) {
+        
+        case actions.USER_LOG_IN_FETCH:
+            return {
+                ...state,
+                user: {
+                    ...action.payload
+                },
+                logInFetch: true,
+                isSessionActive: false,
+                logOutFetch: false,
+                isSessionLogoutSuccess: false,
+            }
 
         case actions.USER_LOG_IN:
             return {
@@ -18,16 +32,29 @@ const sessionReducer = (state: ISessionState = initState, action: IAction): ISes
                 user: {
                     ...action.payload
                 },
-                logOut: false,
+                logInFetch: false,
                 isSessionActive: true,
+                logOutFetch: false,      
+                isSessionLogoutSuccess: false,
+            }
+        
+        case actions.USER_LOG_OUT_FETCH:
+            return {
+                ...state,
+                logInFetch: false,
+                isSessionActive: true,
+                logOutFetch: true,  
+                isSessionLogoutSuccess: false,
             }
 
         case actions.USER_LOG_OUT: 
             return {
                 ...state,
                 user: null,
-                logOut: true,
-                isSessionActive: false
+                logInFetch: false,
+                isSessionActive: false,
+                logOutFetch: false,  
+                isSessionLogoutSuccess: true,
             }
         
         default:

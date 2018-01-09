@@ -11,4 +11,6 @@ import {UserHomeComponent} from './user-home/user-home.component';
   ],
   declarations: [UserHomeComponent]
 })
-export class UserModule { }
+class UserModule { }
+
+export default UserModule;

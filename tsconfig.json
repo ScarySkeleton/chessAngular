@@ -3,7 +3,7 @@
   "compilerOptions": {
     "allowJs": true,
     "outDir": "./out-tsc",
-
+    //"noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "declaration": false,

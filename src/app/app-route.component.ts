@@ -8,6 +8,7 @@ import {AuthGuardService} from 'shared/services/auth.guard.service';
 import {NonAuthGuardService} from 'shared/services/nonauth.guard.service';
 
 import {Routes, RouterModule} from '@angular/router';
+import { resolve } from 'q';
 
 let appRoute: Routes = links.map(link => {
     return {
@@ -47,8 +48,21 @@ appRoute.push({
 // Add accout
 appRoute.push({
     path: 'account',
-    loadChildren: 'app/user/user.module#UserModule'
+    loadChildren: () => import('app/user/user.module')
+        .then(module => {
+            return module.default;
+        })
+     //'app/user/user.module#UserModule'
+    // () => new Promise(
+    //     resolve => {
+    //         (require as any).ensure([], require => {
+    //             resolve(require('./user/user.module').UserModule)
+    //         })
+    //     }
+    // ) 
+    //'./user/user.module#UserModule'
 })
+
 
 // Add page not found component
 appRoute.push({

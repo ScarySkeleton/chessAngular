@@ -18,6 +18,6 @@ export class LoginService {
     }
 
     public logInUser(userData: IUser): void {
-        this.store.dispatch(new session.userLogIn(userData))
+        this.store.dispatch(new session.userLogInFetch(userData))
     }
 }

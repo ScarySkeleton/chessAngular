@@ -1,11 +1,15 @@
 import {IAppState} from 'shared/interfaces/IAppState';
 import {IUser} from 'shared/interfaces/IUser';
 import {IAction} from 'shared/interfaces/IAction';
+import {navigateTo} from 'shared/store/global.action';
+import {userAccountHomeLink, homeLink} from 'assets/pages/links';
+import {SessionService} from 'shared/services/session.service';
+import {sessionUserKey} from 'shared/common/data';
+import * as sessionAction from 'shared/session/session.action';
 
 import {Store} from '@ngrx/store';
 import * as Rx from 'rxjs';
 import {Injectable} from '@angular/core';
-import {CookieService} from 'ngx-cookie-service';
 
 @Injectable()
 export class AuthService {
@@ -26,41 +30,14 @@ export class AuthService {
     public allUsersLogin: Array<string> = [];
 
     /*
-        Session
-    */
-    private readonly session$: Rx.Subscription = this.store
-        .map(({session}) => session)
-        .subscribe(session => {
-            if(!this.isLogined) { // && session.user
-                this.sessionUserData = session.user;
-                this.isSessionActive = session.isSessionActive;
-
-                this.logIn(session.user);
-                return;
-            }
-        });
-
-    private sessionUserData: IUser = this.getLoginedUser();
-    public isSessionActive: boolean = this.isLogined; 
-
-    /*
         Constructor
     */
-    constructor(private cookieService: CookieService,
+    constructor(private sessionService: SessionService,
         private store: Store<IAppState>) {
     }
 
-    public logIn(userData: object): void {
-        this.cookieService.set('user', JSON.stringify(userData));
-    }
-
-    public logOut(): void {
-        this.cookieService.delete('user');
-        console.log('logout');
-    }
-
     public get isLogined(): boolean {
-        let user = this.cookieService.get('user');
+        let user = this.sessionService.get(sessionUserKey);
         if(user) {
             return true;
         } else {
@@ -69,7 +46,7 @@ export class AuthService {
     }
 
     public getLoginedUser(): IUser {
-        return this.cookieService.get('user') as IUser;
+        return JSON.parse(this.sessionService.get(sessionUserKey)) as IUser;
     }
 
     public getUserArrayId(userLogin: string): number {
