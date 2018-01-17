@@ -1,15 +1,13 @@
+import {IAppState} from 'shared/interfaces/IAppState';
+import {FireBaseService} from 'shared/services/firebase.service';
+import * as actions from './login.action';
+import {USERS} from 'assets/dbschema';
+
 import {Injectable} from '@angular/core';
 import {Actions, Effect} from '@ngrx/effects';
 import * as Rx from 'rxjs';
 import {Store} from '@ngrx/store';
 import 'rxjs/add/operator/do';
-
-import {IAppState} from 'shared/interfaces/IAppState';
-import {IAction} from 'shared/interfaces/IAction';
-import {FireBaseService} from 'shared/services/firebase.service';
-import * as actions from './login.action';
-import * as globalAction from 'shared/store/global.action';
-import {USERS} from 'assets/dbschema';
 
 @Injectable()
 export class LoginEffect {

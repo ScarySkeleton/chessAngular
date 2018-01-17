@@ -39,6 +39,7 @@ import {RegisterService} from 'app/auth/register/register.service';
 import {LoginService} from 'app/auth/login/login.service';
 import {LogoutService} from 'app/auth/logout/logout.service';
 import {FireBaseService} from 'shared/services/firebase.service';
+import {HomeService} from 'app/components/home/home.service';
 // Authorization serives
 import {AuthService} from 'shared/services/auth.service';
 import {AuthGuardService} from 'shared/services/auth.guard.service';
@@ -59,6 +60,7 @@ import {ToArrayPipe} from 'shared/pipes/toArray.pipe';
 */
 import {RegisterEffect} from 'app/auth/register/register.effects';
 import {LoginEffect} from 'app/auth/login/login.effects';
+import {HomeEffect} from 'app/components/home/home.effect';
 
 /* 
   Reducers
@@ -90,6 +92,7 @@ import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/datab
 import {CookieService} from 'ngx-cookie-service';
 // Material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SuccessComponent} from '../shared/components/popup/success/success.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +106,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     UserComponent,  
     PopupComponent,
     ErrorComponent,
+    SuccessComponent,    
     // Auth 
     NavAuthComponent,
     NavNonAuthComponent,     
@@ -118,7 +122,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AnchorDirective,
     SpinnerComponent,
     // Pipes
-    ToArrayPipe
+    ToArrayPipe,
   ],
   imports: [
     BrowserModule,
@@ -142,6 +146,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     EffectsModule.forRoot([
       RegisterEffect,
       LoginEffect,
+      HomeEffect,
     ]),
     // FIREBASE
     AngularFireModule.initializeApp(environment.firebase),
@@ -167,6 +172,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AuthGuardService,
     NonAuthGuardService,
     CookieService,
+    HomeService,
   ],
   // For dynamic components
   entryComponents: [ErrorComponent],

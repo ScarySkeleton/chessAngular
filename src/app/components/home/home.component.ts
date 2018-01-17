@@ -1,3 +1,5 @@
+import {HomeService} from './home.service';
+
 import {Component} from '@angular/core';
 
 @Component({
@@ -19,16 +21,23 @@ export class HomeComponent {
   public goal: string = "";
   public courseType: string= "";
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
-  public onClear(): void {
+  public onApplicationClear(): void {
     this.name = "";
     this.lastname = "";
     this.goal = "";
     this.courseType = "";
   }
 
-  public onRegister(): void {
-    
+  public onApplicationRegister(): void {
+    const application = {
+      name: this.name, 
+      lastname: this.lastname,
+      goal: this.goal,
+      courseType: this.courseType
+    };
+
+    this.homeService.onRegisterApplication(application);
   }
 }
