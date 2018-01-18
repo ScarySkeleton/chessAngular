@@ -20,7 +20,7 @@
       "services/*": ["app/services/*"],
       "global/*": ["app/global/*"],
       // ASSETS
-      "assets": ["./app/assets/"],      
+      "assets/*": ["app/assets/*"],      
       "assetsGlobal/": ["./assets/"],
       // SHARED
       "shared/": ["./shared/"],
