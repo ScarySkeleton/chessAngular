@@ -1,5 +1,5 @@
 export interface IPopupState {
-    isShow: boolean;
+    isShow?: boolean;
     title: string;
     childComponent: object;
 }
