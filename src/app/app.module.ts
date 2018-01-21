@@ -16,6 +16,7 @@ import {UsersComponent} from 'shared/components/users/users.component';
 import {UserComponent} from 'shared/components/users/user/user.component';
 import {PopupComponent} from 'shared/components/popup/popup.component';
 import {ErrorComponent} from 'shared/components/popup/error/error.component';
+import {SuccessComponent} from '../shared/components/popup/success/success.component';
 import {SpinnerComponent} from 'shared/components/spinner/spinner.component';
 // Auth
 import {NavAuthComponent} from 'shared/components/nav/nav-auth/nav-auth.component';
@@ -92,7 +93,6 @@ import {AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/datab
 import {CookieService} from 'ngx-cookie-service';
 // Material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SuccessComponent} from '../shared/components/popup/success/success.component';
 
 @NgModule({
   declarations: [

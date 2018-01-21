@@ -17,12 +17,12 @@ export class FireBaseService {
         private store: Store<IAppState>
     ) {}
 
-    setData = (entity: string, value: object): any =>
+    public setData = (entity: string, value: object): any =>
         this.db
             .list(`${DATA}/${entity}`)
-            .push(value);
+            .push(value)
 
-    getData = (entity: string): Observable<any> => 
+    public getData = (entity: string): Observable<any> => 
         this.db
             .object(DATA)
             .valueChanges()

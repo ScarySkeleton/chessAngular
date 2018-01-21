@@ -1,4 +1,5 @@
 import {HomeService} from './home.service';
+import {IApplication} from 'shared/interfaces/IApplication';
 
 import {Component} from '@angular/core';
 
@@ -18,6 +19,7 @@ export class HomeComponent {
 
   public name: string = "";
   public lastname: string = "";
+  public contacts: string = "";
   public goal: string = "";
   public courseType: string= "";
 
@@ -26,18 +28,28 @@ export class HomeComponent {
   public onApplicationClear(): void {
     this.name = "";
     this.lastname = "";
+    this.contacts = "";
     this.goal = "";
     this.courseType = "";
   }
 
   public onApplicationRegister(): void {
-    const application = {
+
+
+    if(this.contacts === "")
+      return this.homeService.onApplicationError('Вы не указали контактную информацию',
+      'Поле для контактной информации не указанно или не валадно.',
+      'Укажите валидные контактные данные.');
+
+    const application: IApplication = {
       name: this.name, 
       lastname: this.lastname,
+      contacts: this.contacts,
       goal: this.goal,
       courseType: this.courseType
     };
+    console.log(this.contacts, this.contacts === "", !!this.contacts.length);
 
-    this.homeService.onRegisterApplication(application);
+    //this.homeService.onRegisterApplication(application);
   }
 }

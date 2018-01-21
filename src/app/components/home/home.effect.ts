@@ -8,16 +8,15 @@ import {APPLICATIONS} from 'app/assets/dbschema';
 // Popup
 import {showPopup, isnotShowPopup} from 'shared/components/popup/popup.action';
 import {IPopupState} from 'shared/interfaces/IPopupState';
-import {ErrorComponent} from 'shared/components/popup/error/error.component';
-import {TIME_TO_SHOW_POPUP_ERROR,
-    TIME_TO_SHOW_POPUP_SUCCESS} from 'shared/components/popup/popup.dictionary';
+import {SuccessComponent} from 'shared/components/popup/success/success.component';
+import {TIME_TO_SHOW_POPUP_SUCCESS} from 'shared/components/popup/popup.dictionary';
 
 import {Injectable} from '@angular/core';
 import {Actions, Effect} from '@ngrx/effects';
 import {Store, Action} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {catchError, map} from "rxjs/operators";
-import {setTimeout} from 'timers';
+import { fetchAllUsersFailure } from 'app/auth/login/login.action';
 
 @Injectable()
 export class HomeEffect {
@@ -29,26 +28,17 @@ export class HomeEffect {
         .map(response => {
             const popup: IPopupState = {
                 title: 'Заявка успешно зарегистрирована.',
-                childComponent: ErrorComponent
+                childComponent: SuccessComponent
             };
 
-            new showPopup(popup);
+            console.log(response);
+
+            this.store.dispatch(new showPopup(popup));
             setTimeout(() => {
-                new isnotShowPopup();
+                this.store.dispatch(new isnotShowPopup());
             }, TIME_TO_SHOW_POPUP_SUCCESS);
             
             return new fetchNewApplicationSuccess()
-        })
-        .catch(error => {
-            const popup: IPopupState = {
-                title: 'Произошла ошибка при отправке данных, попробуйте позже.',
-                childComponent: ErrorComponent
-            };
-
-            new showPopup(popup);
-            return setTimeout(() => {
-                return new isnotShowPopup();
-            }, TIME_TO_SHOW_POPUP_ERROR);
         })
 
     constructor(private store: Store<IAppState>,

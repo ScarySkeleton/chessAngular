@@ -1,3 +1,19 @@
 <div class="container error">
-  Произошла ошибка, попробуйте еще раз.
+  Ошибка: 
+  <span *ngIf='message !== ""; else defaultMessage'>
+    {{message}}
+  </span>
+  <ng-template #defaultMessage>
+    Произошла ошибка.
+  </ng-template>
+
+  <hr />
+
+  Решение: 
+  <span *ngIf='solution !== ""; else defaultSolution'>
+    {{solution}}
+  </span>
+  <ng-template #defaultSolution>
+    Попробуйте еще раз.
+  </ng-template>
 </div>
