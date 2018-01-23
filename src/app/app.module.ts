@@ -18,6 +18,7 @@ import {PopupComponent} from 'shared/components/popup/popup.component';
 import {ErrorComponent} from 'shared/components/popup/error/error.component';
 import {SuccessComponent} from '../shared/components/popup/success/success.component';
 import {SpinnerComponent} from 'shared/components/spinner/spinner.component';
+import {IDynamicPopupComponent} from 'shared/interfaces/IDynamicPopupComponent';
 // Auth
 import {NavAuthComponent} from 'shared/components/nav/nav-auth/nav-auth.component';
 import {NavNonAuthComponent} from 'shared/components/nav/nav-nonauth/nav-nonauth.component';

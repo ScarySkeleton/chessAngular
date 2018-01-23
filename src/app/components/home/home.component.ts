@@ -48,8 +48,6 @@ export class HomeComponent {
       goal: this.goal,
       courseType: this.courseType
     };
-    console.log(this.contacts, this.contacts === "", !!this.contacts.length);
-
-    //this.homeService.onRegisterApplication(application);
+    this.homeService.onRegisterApplication(application);
   }
 }

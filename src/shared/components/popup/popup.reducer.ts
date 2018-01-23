@@ -6,6 +6,8 @@ import {IPopupState} from 'shared/interfaces/IPopupState';
 const initState: IPopupState = {
     isShow: false,
     title: "Info message",
+    message: 'Default message',
+    solution: 'Default solution',
     childComponent: null
 }
 

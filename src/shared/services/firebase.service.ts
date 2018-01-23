@@ -20,7 +20,7 @@ export class FireBaseService {
     public setData = (entity: string, value: object): any =>
         this.db
             .list(`${DATA}/${entity}`)
-            .push(value)
+            .push(value);
 
     public getData = (entity: string): Observable<any> => 
         this.db

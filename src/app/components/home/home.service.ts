@@ -15,12 +15,14 @@ export class HomeService {
     constructor(private store: Store<IAppState>) {
     }
 
-    public onApplicationError(errorReason: string,
-        errorMessage: string,
-        errorResolution: string): void {
+    public onApplicationError(errorReason?: string,
+        errorMessage?: string,
+        errorSolution?: string): void {
             
         const popup: IPopupState = {
             title: errorReason,
+            message: errorMessage,
+            solution: errorSolution,
             childComponent: ErrorComponent
         }
 

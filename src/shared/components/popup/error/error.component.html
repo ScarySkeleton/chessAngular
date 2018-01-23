@@ -1,19 +1,19 @@
 <div class="container error">
   Ошибка: 
-  <span *ngIf='message !== ""; else defaultMessage'>
-    {{message}}
+  <span *ngIf='!!(message$ | async); else defaultMessage'>
+    {{message$ | async}}
   </span>
-  <ng-template #defaultMessage>
-    Произошла ошибка.
-  </ng-template>
+  <ng-template #defaultMessage> -->
+    <span>Произошла ошибка. </span> 
+  </ng-template> 
 
   <hr />
 
   Решение: 
-  <span *ngIf='solution !== ""; else defaultSolution'>
-    {{solution}}
+  <span *ngIf='!!(solution$ | async); else defaultSolution'>
+    {{solution$ | async}}
   </span>
   <ng-template #defaultSolution>
-    Попробуйте еще раз.
+    <span>Попробуйте еще раз.</span>
   </ng-template>
 </div>

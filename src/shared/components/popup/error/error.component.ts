@@ -1,16 +1,19 @@
-import {Component, Input} from '@angular/core';
+import {IDynamicPopupComponent} from 'shared/interfaces/IDynamicPopupComponent';
+import {IAppState} from 'shared/interfaces/IAppState';
+import {IPopupState} from 'shared/interfaces/IPopupState';
+
+import {Component, Input, SimpleChanges} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'chess-popup-error',
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.scss']
 })
-export class ErrorComponent {
+export class ErrorComponent extends IDynamicPopupComponent {
 
-  @Input()
-  public message: string = '';
-  @Input()
-  public solution: string = '';
-
-  constructor() { }
+  constructor(store: Store<IAppState>) {
+    super(store);
+  }
 }

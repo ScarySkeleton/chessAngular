@@ -31,8 +31,6 @@ export class HomeEffect {
                 childComponent: SuccessComponent
             };
 
-            console.log(response);
-
             this.store.dispatch(new showPopup(popup));
             setTimeout(() => {
                 this.store.dispatch(new isnotShowPopup());
