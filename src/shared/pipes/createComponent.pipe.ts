@@ -11,8 +11,7 @@ class CreateComponentPipe {
 
     constructor(@Inject(ComponentFactoryResolver) factoryResolver,
         private viewContainerRef: ViewContainerRef,
-        private injector: Injector,
-        private app: ApplicationRef) {
+        private injector: Injector) {
             this.componentFactoryResolver = factoryResolver;
     }
 
@@ -21,9 +20,11 @@ class CreateComponentPipe {
         if(!component)
             return;
 
+        console.log(component, container);
+
         const _factory = this.componentFactoryResolver.resolveComponentFactory(component);
-        const ref = _factory.create(this.injector, [], container);
-        this.app.attachView(ref.hostView);
+        const _ref = _factory.create(this.injector, [], container);
+        //this.app.attachView(_ref.hostView);
     }
 }
 
