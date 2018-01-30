@@ -6,7 +6,11 @@
         [colspan]="tile.cols"
         [rowspan]="tile.rows"
         [style.background]="tile.color">
-      {{tile.text}}
+      {{ tile.text }} 
+      <div #dynamicComponent>
+          {{ tile.component | createComponent:dynamicComponent }}
+      </div>
+      
     </mat-grid-tile>
   </mat-grid-list>
 
@@ -43,6 +47,7 @@
         <mat-select placeholder="Тип курса"
           [(ngModel)]="courseType">
           <mat-option value="unknown">Неопределенно</mat-option>
+          <mat-option value="forKids">Для деток</mat-option>
           <mat-option value="longTerm">Длительные занятия</mat-option>
           <mat-option value="preparingForTournaments">Подготовка к соревнованиям</mat-option>
           <mat-option value="other">Другой</mat-option>

@@ -19,6 +19,7 @@ import {ErrorComponent} from 'shared/components/popup/error/error.component';
 import {SuccessComponent} from '../shared/components/popup/success/success.component';
 import {SpinnerComponent} from 'shared/components/spinner/spinner.component';
 import {IDynamicPopupComponent} from 'shared/interfaces/IDynamicPopupComponent';
+import {GreedingComponent} from 'app/components/home/greeding/greeding.component';
 // Auth
 import {NavAuthComponent} from 'shared/components/nav/nav-auth/nav-auth.component';
 import {NavNonAuthComponent} from 'shared/components/nav/nav-nonauth/nav-nonauth.component';
@@ -56,6 +57,7 @@ import {AnchorDirective} from 'shared/directives/AnchorDirective';
   Pipe
 */
 import {ToArrayPipe} from 'shared/pipes/toArray.pipe';
+import {CreateComponentPipe} from 'shared/pipes/createComponent.pipe';
 
 /* 
   Effects  
@@ -107,7 +109,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     UserComponent,  
     PopupComponent,
     ErrorComponent,
-    SuccessComponent,    
+    SuccessComponent,
+    GreedingComponent,
     // Auth 
     NavAuthComponent,
     NavNonAuthComponent,     
@@ -124,6 +127,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SpinnerComponent,
     // Pipes
     ToArrayPipe,
+    CreateComponentPipe,
   ],
   imports: [
     BrowserModule,
@@ -176,7 +180,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HomeService,
   ],
   // For dynamic components
-  entryComponents: [ErrorComponent],
+  entryComponents: [ErrorComponent, GreedingComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

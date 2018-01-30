@@ -1,5 +1,6 @@
 import {HomeService} from './home.service';
 import {IApplication} from 'shared/interfaces/IApplication';
+import {GreedingComponent} from './greeding/greeding.component';
 
 import {Component} from '@angular/core';
 
@@ -11,7 +12,7 @@ import {Component} from '@angular/core';
 export class HomeComponent {
 
   public tiles: Array<object> = [
-    {text: 'Приветствие', cols: 3, rows: 1},
+    {component: GreedingComponent, cols: 3, rows: 1},
     {text: 'О нас', cols: 1, rows: 2, color: 'lightgreen'},
     {text: 'Преподователи', cols: 1, rows: 1, color: 'lightpink'},
     {text: 'Уроки', cols: 2, rows: 1, color: '#DDBDF1'},
