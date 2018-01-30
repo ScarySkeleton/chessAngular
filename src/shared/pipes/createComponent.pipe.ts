@@ -16,29 +16,14 @@ class CreateComponentPipe {
             this.componentFactoryResolver = factoryResolver;
     }
 
-    transform(component: any, container: ViewContainerRef, ...args: any[]): any {
+    transform(component: any, container: ViewContainerRef): void {
 
         if(!component)
             return;
 
-        //console.log('cint', component, container);
-        //console.log(this.viewContainerRef.createComponent(container))
-
         const _factory = this.componentFactoryResolver.resolveComponentFactory(component);
-        //const _component = _factory.create(this.injector);
-        //const view = _component.hostView;
-        console.log( _factory, container as ViewContainerRef);
-        
         const ref = _factory.create(this.injector, [], container);
         this.app.attachView(ref.hostView);
-
-        //container.clear();
-        // let componentRef = _factory.create(this.injector);
-        // let view = componentRef.hostView;
-        // console.log(view, this.injector, componentRef);
-
-
-        //return _component;
     }
 }
 
