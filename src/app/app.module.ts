@@ -75,8 +75,9 @@ import {registerReducer} from 'app/auth/register/register.reducer';
 import {loginReducer} from 'app/auth/login/login.reducer';
 import {popupReducer} from 'shared/components/popup/popup.reducer';
 import {sessionReducer} from 'shared/session/session.reducer';
-//Materials 
+// External Modules
 import {MaterialModule} from './material.module';
+import {SharedModule} from 'shared/shared.module';
 
 /*
   NPM libs
@@ -87,7 +88,6 @@ import {FormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {Actions, EffectsModule} from '@ngrx/effects';
-import {AgmCoreModule} from '@agm/core';
 // FireBase
 import {AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
@@ -165,9 +165,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     //EffectsModule.run()
     BrowserAnimationsModule,
     MaterialModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCW6vVislPDpuL2BJ_ua_gVt2U8tL5XBzM'
-    })
+    SharedModule,
   ],
   providers: [
     Actions,
