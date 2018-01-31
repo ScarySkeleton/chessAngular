@@ -2,6 +2,6 @@
     [latitude]="defaultShow.latitude" 
     [longitude]="defaultShow.longitude"
     [zoom]="settings.zoom"
-    [ngStyle]="{'height.px': settings.height}">
+    [ngStyle]="{'height.px': settings.height, 'width.px': auto}">
     <agm-marker *ngFor="let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
 </agm-map>
