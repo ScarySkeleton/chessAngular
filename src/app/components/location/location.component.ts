@@ -1,5 +1,5 @@
 import {Coordinate} from 'shared/interfaces/type/Coordinate';
-import {companyLocation, mapHeight} from './location.dictionary';
+import {companyLocation, mapSettings} from './location.dictionary';
 
 import {Component} from '@angular/core';
 
@@ -11,7 +11,7 @@ import {Component} from '@angular/core';
 class LocationComponent {
     public defaultShow: Coordinate = companyLocation[0];
     public companyLocation: Array<Coordinate> = companyLocation;
-    public mapHeight: number = mapHeight;
+    public mapSettings: any = mapSettings;
 }
 
 export {LocationComponent};

@@ -14,7 +14,7 @@ class MapComponent {
     @Input()
     public markers?: Array<Coordinate>;
     @Input()
-    public height: number = 300;
+    public settings: any;
 }
 
 export {MapComponent};
