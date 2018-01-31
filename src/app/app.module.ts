@@ -20,6 +20,7 @@ import {SuccessComponent} from '../shared/components/popup/success/success.compo
 import {SpinnerComponent} from 'shared/components/spinner/spinner.component';
 import {IDynamicPopupComponent} from 'shared/interfaces/IDynamicPopupComponent';
 import {GreedingComponent} from 'app/components/home/greeding/greeding.component';
+import {LocationComponent} from 'app/components/location/location.component';
 // Auth
 import {NavAuthComponent} from 'shared/components/nav/nav-auth/nav-auth.component';
 import {NavNonAuthComponent} from 'shared/components/nav/nav-nonauth/nav-nonauth.component';
@@ -86,6 +87,7 @@ import {FormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {Actions, EffectsModule} from '@ngrx/effects';
+import {AgmCoreModule} from '@agm/core';
 // FireBase
 import {AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
@@ -111,6 +113,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ErrorComponent,
     SuccessComponent,
     GreedingComponent,
+    LocationComponent,
     // Auth 
     NavAuthComponent,
     NavNonAuthComponent,     
@@ -162,6 +165,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     //EffectsModule.run()
     BrowserAnimationsModule,
     MaterialModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCW6vVislPDpuL2BJ_ua_gVt2U8tL5XBzM'
+    })
   ],
   providers: [
     Actions,
