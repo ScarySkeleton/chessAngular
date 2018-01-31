@@ -5,4 +5,6 @@ const companyLocation: Array<Coordinate> = [{
     longitude: 32.0767546
 }]
 
-export {companyLocation};
+const mapHeight: number = 300;
+
+export {companyLocation, mapHeight};

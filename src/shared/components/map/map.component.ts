@@ -13,6 +13,8 @@ class MapComponent {
     public defaultShow?: Coordinate;
     @Input()
     public markers?: Array<Coordinate>;
+    @Input()
+    public height: number = 300;
 }
 
 export {MapComponent};
