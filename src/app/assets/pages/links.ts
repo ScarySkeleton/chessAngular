@@ -1,6 +1,7 @@
-import { HomeComponent } from 'app/components/home/home.component';
-import { AboutComponent } from 'app/components/about/about.component';
-import { DefaultComponent } from 'app/components/default/default.component';
+import {HomeComponent} from 'app/components/home/home.component';
+import {AboutComponent} from 'app/components/about/about.component';
+import {DefaultComponent} from 'app/components/default/default.component';
+import {LocationComponent} from 'app/components/location/location.component';
 
 export const userAccountHomeLink: string = 'account';
 export const homeLink: string = 'home';
@@ -33,7 +34,7 @@ export const links = [
     {
         caption: "Локация",
         link: "map",
-        component: DefaultComponent,
+        component: LocationComponent,
         i: "fa fa-map-marker fa-2x",
     }, 
     {

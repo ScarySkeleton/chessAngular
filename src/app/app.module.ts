@@ -20,6 +20,7 @@ import {SuccessComponent} from '../shared/components/popup/success/success.compo
 import {SpinnerComponent} from 'shared/components/spinner/spinner.component';
 import {IDynamicPopupComponent} from 'shared/interfaces/IDynamicPopupComponent';
 import {GreedingComponent} from 'app/components/home/greeding/greeding.component';
+import {LocationComponent} from 'app/components/location/location.component';
 // Auth
 import {NavAuthComponent} from 'shared/components/nav/nav-auth/nav-auth.component';
 import {NavNonAuthComponent} from 'shared/components/nav/nav-nonauth/nav-nonauth.component';
@@ -74,8 +75,9 @@ import {registerReducer} from 'app/auth/register/register.reducer';
 import {loginReducer} from 'app/auth/login/login.reducer';
 import {popupReducer} from 'shared/components/popup/popup.reducer';
 import {sessionReducer} from 'shared/session/session.reducer';
-//Materials 
+// External Modules
 import {MaterialModule} from './material.module';
+import {SharedModule} from 'shared/shared.module';
 
 /*
   NPM libs
@@ -111,6 +113,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ErrorComponent,
     SuccessComponent,
     GreedingComponent,
+    LocationComponent,
     // Auth 
     NavAuthComponent,
     NavNonAuthComponent,     
@@ -162,6 +165,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     //EffectsModule.run()
     BrowserAnimationsModule,
     MaterialModule,
+    SharedModule,
   ],
   providers: [
     Actions,

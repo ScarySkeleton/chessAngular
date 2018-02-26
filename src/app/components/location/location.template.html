@@ -1,0 +1,36 @@
+<mat-grid-list cols="2">
+        <mat-card class="card" [ngStyle]="{'min-height.px': mapSettings.height}">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3>
+                        Информация
+                    </h3>
+                </mat-card-title>
+            </mat-card-header>
+            
+            <mat-card-content>
+                <p>
+                    Большинство наших учеников предпочитают проводить занятия у себя дома, реже, но 
+                    существуют прицеденты - онлайн.
+                </p>    
+            </mat-card-content>
+        </mat-card>
+    
+        <mat-card class="card">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3>
+                        Наше местоположение
+                    </h3>
+                </mat-card-title>
+            </mat-card-header>
+            
+            <mat-card-content>
+                <kainzen-map
+                    [defaultShow]="defaultShow"
+                    [markers]="companyLocation"
+                    [settings]="mapSettings"
+                ></kainzen-map>
+            </mat-card-content>
+        </mat-card>
+</mat-grid-list>

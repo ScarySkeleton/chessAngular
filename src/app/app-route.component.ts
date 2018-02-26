@@ -8,7 +8,6 @@ import {AuthGuardService} from 'shared/services/auth.guard.service';
 import {NonAuthGuardService} from 'shared/services/nonauth.guard.service';
 
 import {Routes, RouterModule} from '@angular/router';
-import { resolve } from 'q';
 
 let appRoute: Routes = links.map(link => {
     return {
